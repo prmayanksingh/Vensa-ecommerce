@@ -7,12 +7,12 @@ import { asyncLoginUser } from "../store/actions/UserAction";
 const Login = () => {
   const { handleSubmit, register, reset } = useForm();
   const dispatch = useDispatch();
-  
 
   const loginHandler = (user) => {
-    dispatch(asyncLoginUser(user))
+    dispatch(asyncLoginUser(user));
+
     reset();
-  }
+  };
 
   return (
     <div className="lg:w-[50%] lg:flex lg:justify-center my-auto -translate-y-[8%] text-[4vw] md:text-[22px] lg:text-[20px] xl:text-[16px]">
@@ -20,7 +20,10 @@ const Login = () => {
         <h1 className="text-center font-semibold text-[2.2em] mb-14">
           Sign In
         </h1>
-        <form onSubmit={handleSubmit(loginHandler)} className="flex flex-col gap-[1em]">
+        <form
+          onSubmit={handleSubmit(loginHandler)}
+          className="flex flex-col gap-[1em]"
+        >
           <div className="w-[22em] flex items-center gap-3 px-6 py-3 outline outline-gray-400 rounded-full">
             <span className="text-gray-700 text-xl">
               <CgMail />
@@ -28,7 +31,7 @@ const Login = () => {
             <input
               {...register("email", { required: "Email is required" })}
               className="w-[17em] text-[1.1em] outline-none"
-              type="text"
+              type="email "
               placeholder="Email Id"
             />
           </div>

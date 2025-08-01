@@ -1,6 +1,6 @@
 import axios from "../../api/axiosconfig";
 import { toast } from "react-toastify";
-import { loaduser } from "../reducers/UserSlice";
+import { loaduser, removeuser } from "../reducers/UserSlice";
 
 export const asyncCurrentUser = () => async (dispatch, setState) => {
   try {
@@ -8,7 +8,6 @@ export const asyncCurrentUser = () => async (dispatch, setState) => {
     if (user) dispatch(loaduser(user));
     else console.log("User not logged in");
   } catch (error) {
-    toast.error("Failed To login");
     console.log(error);
   }
 };
@@ -16,8 +15,9 @@ export const asyncCurrentUser = () => async (dispatch, setState) => {
 export const asyncLogoutUser = () => async (dispatch, setState) => {
   try {
     localStorage.removeItem("user");
+    dispatch(removeuser())
+    toast.success("You have logged out!!")
   } catch (error) {
-    toast.error("Failed To login!");
     console.log(error);
   }
 };
@@ -27,7 +27,11 @@ export const asyncLoginUser = (user) => async (dispatch, setState) => {
     const { data } = await axios.get(
       `/users?email=${user.email}&password=${user.password}`
     );
-    localStorage.setItem("user", JSON.stringify(data[0]));
+    if (data[0] === undefined) toast.error("Failed to login!!");
+    else {
+      localStorage.setItem("user", JSON.stringify(data[0]));
+      toast.success("Login Successfully!!🙂");
+    }
   } catch (error) {
     console.log(error);
   }
@@ -36,7 +40,7 @@ export const asyncLoginUser = (user) => async (dispatch, setState) => {
 export const asyncRegisterUser = (user) => async (dispatch, setState) => {
   try {
     const res = await axios.post("/users", user);
-    toast.success("Registered succefully!🙂")
+    toast.success("Registered succefully!🙂");
     console.log(res);
   } catch (error) {
     toast.error(error);

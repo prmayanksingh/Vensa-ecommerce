@@ -3,10 +3,10 @@ import Register from "../components/Register";
 
 const Auth = () => {
   return (
-    <div className="h-screen flex justify-center xl:justify-between">
+    <section className="h-screen flex justify-center xl:justify-between">
       <Register/>
       <Login/>
-    </div>
+    </section>
   );
 };
 

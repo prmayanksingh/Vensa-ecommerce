@@ -12,8 +12,9 @@ const Register = () => {
 
   const registerHandler = (user) => {
     user.id = nanoid();
+    user.isAdmin = false;
     dispatch(asyncRegisterUser(user));
-    // reset();
+    reset();
   };
 
   return (

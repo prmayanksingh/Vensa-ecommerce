@@ -12,7 +12,7 @@ const App = () => {
   },[])  
 
   return (
-    <div>
+    <div className="font-[Helvetica] tracking-wide">
       <MainRoute />
     </div>
   );

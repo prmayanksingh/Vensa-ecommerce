@@ -1,5 +1,14 @@
 @import "tailwindcss";
-
-body {
+@font-face {
+  font-family: "Monument";
+  src: url('./fonts/MonumentExtended-Regular.woff2');
+}
+@font-face {
   font-family: "Helvetica";
+  src: url('./fonts/HelveticaNowDisplay-Regular.woff2');
+}
+
+@font-face {
+  font-family: "Gilroy";
+  src: url('./fonts/Gilroy-Regular.ttf');
 }
