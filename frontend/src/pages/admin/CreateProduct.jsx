@@ -1,13 +1,16 @@
 import Nav from "../../components/Nav";
 import { nanoid } from "@reduxjs/toolkit";
 import { useForm } from "react-hook-form";
+import { asyncCreateProduct } from "../../store/actions/ProductAction";
+import { useDispatch } from "react-redux";
 
 const CreateProduct = () => {
   const { register, handleSubmit, reset } = useForm();
+  const dispatch = useDispatch();
 
   const submiteHandler = (product) => {
     product.id = nanoid();
-    console.log(product);
+    dispatch(asyncCreateProduct(product));
     reset();
   };
 
@@ -35,10 +38,11 @@ const CreateProduct = () => {
                 Image
               </label>
               <input
+                required
                 {...register("image", { required: "image is required" })}
                 className="px-[.9em] py-[.3em] text-[1em] rounded-md outline-none bg-gray-100 text-gray-500"
                 id="image"
-                type="text"
+                type="url"
                 placeholder="Enter image URL"
               />
             </div>
@@ -47,6 +51,7 @@ const CreateProduct = () => {
                 Name
               </label>
               <input
+                required
                 {...register("name", { required: "name is required" })}
                 className="px-[.9em] py-[.3em] text-[1em] rounded-md outline-none bg-gray-100 text-gray-500"
                 id="name"
@@ -63,6 +68,7 @@ const CreateProduct = () => {
                   Category
                 </label>
                 <select
+                  required
                   {...register("category", {
                     required: "category is required",
                   })}
@@ -96,10 +102,11 @@ const CreateProduct = () => {
                   Price
                 </label>
                 <input
+                  required
                   {...register("price", { required: "price is required" })}
                   className="px-[.9em] py-[.3em] text-[1em] rounded-md outline-none bg-gray-100 text-gray-500"
                   id="price"
-                  type="text"
+                  type="number"
                   placeholder="Enter price"
                 />
               </div>
@@ -112,6 +119,7 @@ const CreateProduct = () => {
                 Description
               </label>
               <textarea
+                required
                 {...register("description", {
                   required: "description is required",
                 })}

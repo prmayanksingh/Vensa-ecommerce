@@ -17,12 +17,60 @@
   ],
   "products": [
     {
-      "id": "1",
-      "title": "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
-      "price": 109.95,
-      "description": "Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday",
-      "category": "men's clothing",
-      "image": "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg"
+      "id": "J6zW_oSau5s55tCclEbEl",
+      "image": "https://images.pexels.com/photos/90946/pexels-photo-90946.jpeg",
+      "name": "Fujifilm X-T10 Mirrorless Digital Camera (Body with 18-55mm Lens)",
+      "category": "electronics",
+      "price": "54999",
+      "description": "Capture stunning high-resolution images with the Fujifilm X-T10 Mirrorless Digital Camera. Designed for photography enthusiasts, it features a 16.3MP APS-C X-Trans CMOS II sensor and an advanced EXR Processor II for exceptional detail and color reproduction. The included Fujinon XF 18-55mm f/2.8-4 R LM OIS lens provides versatile shooting from wide-angle landscapes to close-up portraits. With fast autofocus, continuous shooting up to 8fps, and full HD 1080p video recording, this lightweight camera delivers professional performance in a compact body. Perfect for travel, events, and creative photography."
+    },
+    {
+      "id": "f-SuZ77NgT4OWTA1y3Dn8",
+      "image": "https://images.pexels.com/photos/3945667/pexels-photo-3945667.jpeg",
+      "name": "Sony PlayStation Wireless Stereo Headset – Black",
+      "category": "headphones",
+      "price": "8499",
+      "description": "Immerse yourself in rich, high-fidelity sound with the Sony PlayStation Wireless Stereo Headset. Designed specifically for PlayStation consoles, this sleek black over-ear headset delivers powerful audio and clear chat with a built-in microphone. With wireless connectivity, 7.1 virtual surround sound, and up to 8 hours of battery life, it’s perfect for intense gaming sessions. Comfortable ear cushions and a foldable design make it ideal for long hours of gameplay and easy portability. Level up your gaming audio experience today."
+    },
+    {
+      "id": "tKb_WMVe7mYV_9hKyfBCu",
+      "image": "https://images.pexels.com/photos/3765976/pexels-photo-3765976.jpeg",
+      "name": "Women's Elegant White Lace-Collar Cotton Shirt",
+      "category": "women-clothing",
+      "price": "1499",
+      "description": "Add timeless elegance to your wardrobe with this stylish white cotton shirt, featuring a delicate lace-trimmed collar and front ruffle detail. Designed with a relaxed fit, full puff sleeves, and a soft breathable fabric, it pairs perfectly with jeans or formal trousers. Ideal for office, casual outings, or semi-formal events. Stay effortlessly chic and comfortable all day."
+    },
+    {
+      "id": "ec3oDxDV7xMd7a77givQg",
+      "image": "https://images.pexels.com/photos/17630777/pexels-photo-17630777.jpeg",
+      "name": "Women's High-Waisted Light Blue Skinny Jeans",
+      "category": "women-clothing",
+      "price": "1299",
+      "description": "Step into effortless style with these high-waisted light blue skinny jeans. Crafted from a premium stretch denim blend, they offer a flattering fit, excellent comfort, and all-day wearability. The classic five-pocket design and clean finish make them a versatile choice for pairing with everything from casual tees to dressy tops. A wardrobe essential for every modern woman."
+    },
+    {
+      "id": "aTBvbU7nZBALcfegip5z1",
+      "image": "https://images.pexels.com/photos/28010102/pexels-photo-28010102.jpeg",
+      "name": "Men's Classic White Slim Fit Cotton Shirt",
+      "category": "men-clothing",
+      "price": "1599",
+      "description": "Stay sharp and stylish with this classic white slim-fit shirt, tailored for a clean and modern silhouette. Made from breathable cotton fabric, it features a crisp collar, full sleeves, and a flattering cut that's perfect for both formal and casual occasions. Pair it effortlessly with trousers or jeans for a polished look that never goes out of style."
+    },
+    {
+      "id": "dgj1Ro8gKmNd1yaWa7_Dm",
+      "image": "https://images.pexels.com/photos/14384301/pexels-photo-14384301.jpeg",
+      "name": "Men's Charcoal Wool-Blend Winter Peacoat Jacket",
+      "category": "men-clothing",
+      "price": "2999",
+      "description": "Elevate your winter wardrobe with this stylish charcoal wool-blend peacoat jacket. Featuring a broad collar, double-breasted design, and flap pockets, this jacket offers both warmth and urban sophistication. Ideal for layering over casual or semi-formal outfits, it’s a perfect companion for chilly evenings and city strolls. Tailored for a slim, structured fit with premium inner lining for added comfort."
+    },
+    {
+      "id": "IVSm3NKDjKo6lbJoliXHX",
+      "image": "https://images.pexels.com/photos/24287025/pexels-photo-24287025.jpeg",
+      "name": "Women's Oversized Graphic T-Shirt – \"I'm Leaving to Smoke Weed\" Print",
+      "category": "women-clothing",
+      "price": "999",
+      "description": "Make a bold statement with this oversized white graphic tee featuring a quirky and colorful cartoon design with the text “I’m Leaving to Smoke Weed.” Made from soft, breathable cotton, this unisex-style t-shirt offers ultimate comfort and street-style edge. Pair it with high-waisted jeans, shorts, or joggers for a relaxed, expressive look. Perfect for casual outings, concerts, or just showing off your personality."
     }
   ],
   "carts": []

@@ -2,8 +2,9 @@ import { Route, Routes } from "react-router-dom";
 import Home from "../pages/Home";
 import Auth from "../pages/Auth";
 import Cart from "../pages/Cart";
-import Products from "../pages/products";
+import Products from "../pages/Products";
 import CreateProduct from "../pages/admin/CreateProduct";
+import ProductDetails from "../pages/ProductDetails";
 
 const MainRoute = () => {
   return (
@@ -14,6 +15,7 @@ const MainRoute = () => {
         <Route path="/auth" element={<Auth />} />
         //Products route
         <Route path="/products" element={<Products />} />
+        <Route path="/product/:id" element={<ProductDetails />} />
         <Route path="/createproduct" element={<CreateProduct />} />
       </Routes>
     </>
