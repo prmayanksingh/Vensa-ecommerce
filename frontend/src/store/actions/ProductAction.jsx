@@ -2,7 +2,7 @@ import axios from "../../api/axiosconfig";
 import { toast } from "react-toastify";
 import { loadproduct } from "../reducers/ProductSlice";
 
-export const asyncLoadProduct = () => async (dispatch, getState) => {
+export const asyncLoadProducts = () => async (dispatch, getState) => {
   try {
     const { data } = await axios.get("/products");
     dispatch(loadproduct(data));
@@ -13,9 +13,30 @@ export const asyncLoadProduct = () => async (dispatch, getState) => {
 
 export const asyncCreateProduct = (product) => async (dispatch, getState) => {
   try {
-    const res = await axios.post("/products", product);
-    console.log(res);
-    toast.success("product created successfully!!");
+    await axios.post("/products", product);
+    dispatch(asyncLoadProducts())
+    toast.success("product created successfully!!🙂");
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+
+export const asyncUpdateProduct = (id,product) => async (dispatch, getState) => {
+  try {
+    await axios.patch("/products/" + id, product);
+    dispatch(asyncLoadProducts());
+    toast.success("Product Updated Successfully!!🙂");
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const asyncDeleteProduct = (id) => async (dispatch, getState) => {
+  try {
+    await axios.delete("/products/" + id);
+    dispatch(asyncLoadProducts());
+    toast.success("Product Deleted Successfully!!🙂");
   } catch (error) {
     console.log(error);
   }

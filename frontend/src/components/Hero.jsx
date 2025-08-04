@@ -1,5 +1,5 @@
 import { IoIosArrowForward } from "react-icons/io";
-import hero from '../assets/hero.jpg'
+import hero from '../assets/hero.webp'
 import Nav from "./Nav";
 import { Link } from "react-router-dom";
 

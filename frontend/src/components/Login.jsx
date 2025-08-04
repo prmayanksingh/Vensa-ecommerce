@@ -1,16 +1,20 @@
 import { CgMail } from "react-icons/cg";
 import { RiLockPasswordLine } from "react-icons/ri";
 import { useForm } from "react-hook-form";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { asyncLoginUser } from "../store/actions/UserAction";
+import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 const Login = () => {
   const { handleSubmit, register, reset } = useForm();
+  const { user } = useSelector((state) => state.userReducer);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
-  const loginHandler = (user) => {
-    dispatch(asyncLoginUser(user));
-
+  const loginHandler = async (userData) => {
+    const res = await dispatch(asyncLoginUser(userData));
+    if (res) navigate("/");
     reset();
   };
 
@@ -29,6 +33,7 @@ const Login = () => {
               <CgMail />
             </span>
             <input
+              required
               {...register("email", { required: "Email is required" })}
               className="w-[17em] text-[1.1em] outline-none"
               type="email "
@@ -41,17 +46,18 @@ const Login = () => {
               <RiLockPasswordLine />
             </span>
             <input
+              required
               {...register("password", { required: "Password is required" })}
               className="w-[17em] text-[1.1em] outline-none"
               type="password"
               placeholder="Password"
             />
           </div>
-          <small className="text-[0.75em] text-right text-blue-700">
+          <small className="text-[0.75em] text-right text-black">
             Forgotten Password?
           </small>
 
-          <button className="py-3 bg-blue-500 hover:bg-blue-700 text-[1.1em] text-white rounded-full">
+          <button className="py-3 bg-black text-white text-[1.1em] rounded-full">
             Sign in
           </button>
         </form>

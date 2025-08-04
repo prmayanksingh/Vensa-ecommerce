@@ -3,21 +3,25 @@ import { nanoid } from "@reduxjs/toolkit";
 import { useForm } from "react-hook-form";
 import { asyncCreateProduct } from "../../store/actions/ProductAction";
 import { useDispatch } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const CreateProduct = () => {
   const { register, handleSubmit, reset } = useForm();
   const dispatch = useDispatch();
+  const navigate = useNavigate()
 
   const submiteHandler = (product) => {
     product.id = nanoid();
     dispatch(asyncCreateProduct(product));
+    navigate("/products")
     reset();
   };
 
   return (
-    <section className="text-[3.7vw] sm:text-[2.6vw] md:text-[16px] lg:text-[1.4vw] xl:text-[16px]">
+    <section className="text-[3.7vw] sm:text-[2.6vw] md:text-[2vw] lg:text-[1.4vw] xl:text-[16px]">
       <Nav />
-      <div className="h-[calc(100vh-3.2rem)] p-4 px-[1.6em] pt-[3.2em] lg:px-[3em] lg:py-[3em] xl:px-[9em] bg-[#F5F6F8] flex flex-col lg:flex-row lg:items-center gap-[3.5em] xl:gap-[9em]">
+      <div className="min-h-[calc(100vh-3.2rem)] p-4 px-[1.6em] md:px-[3em] lg:px-[3em] pt-[3.2em] md:pt-[5em] lg:py-[3em] xl:px-[9em] bg-[#F5F6F8] flex flex-col lg:flex-row lg:items-center gap-[3.5em] md:gap-[4em] xl:gap-[9em]">
         <div className="w-full lg:w-[45%] flex flex-col gap-[1.5em] lg:gap-[2em] xl:gap-[2.3em]">
           <h1 className="text-[3.2em] lg:text-[3.7em] xl:text-[4.3em] leading-[1.2em]">
             <span className="font-bold">Create</span> &{" "}
@@ -28,10 +32,10 @@ const CreateProduct = () => {
             Make them available instantly to your customers.
           </h3>
         </div>
-        <div className="lg:w-[45%] xl:w-[40%] bg-white p-6 lg:p-9 xl:p-11 rounded-3xl shadow-2xl">
+        <div className="lg:w-[45%] xl:w-[40%] bg-white p-[1.7em] md:p-[2.5em]  lg:p-9 xl:p-11 rounded-3xl shadow-2xl">
           <form
             onSubmit={handleSubmit(submiteHandler)}
-            className="flex flex-col gap-[1.3em] lg:gap-[1.5em] xl:gap-[2em]"
+            className="flex flex-col gap-[1.3em] md:gap-[1.5em] lg:gap-[1.5em] xl:gap-[2em]"
           >
             <div className="flex flex-col gap-[0.2em]">
               <label className="text-[1.1em] text-gray-500" htmlFor="image">
@@ -130,9 +134,14 @@ const CreateProduct = () => {
                 placeholder="Enter product description"
               />
             </div>
-            <button className="text-[1.1em] bg-blue-500 hover:bg-blue-600 text-white py-[.4em] rounded-xl">
-              Create
-            </button>
+            <div className="flex gap-[.9em]">
+              <Link to={-1} className="flex items-center justify-center w-[50%] text-[1.1em] outline text-black active:scale-[95%] py-[.4em] rounded-lg">
+                Cancle
+              </Link>
+              <button className="w-[50%] text-[1.1em] bg-black text-white active:scale-[95%] py-[.5em] rounded-lg">
+                Create
+              </button>
+            </div>
           </form>
         </div>
       </div>

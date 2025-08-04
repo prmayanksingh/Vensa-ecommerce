@@ -32,6 +32,7 @@ const Register = () => {
               <FaRegUser />
             </span>
             <input
+              required
               {...register("username", { required: "Name is required" })}
               className="w-[17em] text-[1.1em] outline-none"
               type="text"
@@ -44,6 +45,7 @@ const Register = () => {
               <CgMail />
             </span>
             <input
+              required
               {...register("email", { required: "Email is required" })}
               className="w-[17em] text-[1.1em] outline-none"
               type="text"
@@ -56,17 +58,18 @@ const Register = () => {
               <RiLockPasswordLine />
             </span>
             <input
+              required
               {...register("password", { required: "Password is required" })}
               className="w-[17em] text-[1.1em  outline-none"
               type="password"
               placeholder="Password"
             />
           </div>
-          <small className="text-[0.75em] text-right text-blue-700">
+          <small className="text-[0.75em] text-right text-black">
             Use a strong password
           </small>
 
-          <button className="py-3 bg-blue-500 hover:bg-blue-700 text-[1.1em] text-white rounded-full">
+          <button className="py-3 bg-black text-white text-[1.1em] rounded-full">
             Sign Up
           </button>
         </form>

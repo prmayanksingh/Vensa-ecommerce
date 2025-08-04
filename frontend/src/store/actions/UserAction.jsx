@@ -27,13 +27,19 @@ export const asyncLoginUser = (user) => async (dispatch, setState) => {
     const { data } = await axios.get(
       `/users?email=${user.email}&password=${user.password}`
     );
-    if (data[0] === undefined) toast.error("Failed to login!!");
+    if (data[0] === undefined) {
+      toast.error("Failed to login!!")
+      return false;
+    }
     else {
       localStorage.setItem("user", JSON.stringify(data[0]));
+      dispatch(asyncCurrentUser())
       toast.success("Login Successfully!!🙂");
+      return true;
     }
   } catch (error) {
     console.log(error);
+    return false;
   }
 };
 

@@ -57,20 +57,20 @@
       "description": "Stay sharp and stylish with this classic white slim-fit shirt, tailored for a clean and modern silhouette. Made from breathable cotton fabric, it features a crisp collar, full sleeves, and a flattering cut that's perfect for both formal and casual occasions. Pair it effortlessly with trousers or jeans for a polished look that never goes out of style."
     },
     {
-      "id": "dgj1Ro8gKmNd1yaWa7_Dm",
-      "image": "https://images.pexels.com/photos/14384301/pexels-photo-14384301.jpeg",
-      "name": "Men's Charcoal Wool-Blend Winter Peacoat Jacket",
-      "category": "men-clothing",
-      "price": "2999",
-      "description": "Elevate your winter wardrobe with this stylish charcoal wool-blend peacoat jacket. Featuring a broad collar, double-breasted design, and flap pockets, this jacket offers both warmth and urban sophistication. Ideal for layering over casual or semi-formal outfits, it’s a perfect companion for chilly evenings and city strolls. Tailored for a slim, structured fit with premium inner lining for added comfort."
-    },
-    {
       "id": "IVSm3NKDjKo6lbJoliXHX",
       "image": "https://images.pexels.com/photos/24287025/pexels-photo-24287025.jpeg",
       "name": "Women's Oversized Graphic T-Shirt – \"I'm Leaving to Smoke Weed\" Print",
       "category": "women-clothing",
       "price": "999",
       "description": "Make a bold statement with this oversized white graphic tee featuring a quirky and colorful cartoon design with the text “I’m Leaving to Smoke Weed.” Made from soft, breathable cotton, this unisex-style t-shirt offers ultimate comfort and street-style edge. Pair it with high-waisted jeans, shorts, or joggers for a relaxed, expressive look. Perfect for casual outings, concerts, or just showing off your personality."
+    },
+    {
+      "id": "1Qu8bhzvxIbfZUS3Ana4T",
+      "image": "https://images.pexels.com/photos/16156974/pexels-photo-16156974.jpeg",
+      "name": "Men's Off-White Casual Cotton Shacket",
+      "category": "men-clothing",
+      "price": "1899",
+      "description": "Stay effortlessly stylish with this off-white cotton shacket — a versatile blend of shirt and jacket. Featuring front chest pockets, button-down closure, and a relaxed fit, this lightweight layer is perfect for both casual and semi-formal looks. Wear it over a plain tee or button it up for a cleaner silhouette. Ideal for transitional weather and minimalist fashion lovers."
     }
   ],
   "carts": []
