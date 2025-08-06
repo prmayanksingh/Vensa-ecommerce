@@ -1,6 +1,7 @@
 import { CgMail } from "react-icons/cg";
 import { RiLockPasswordLine } from "react-icons/ri";
 import { FaRegUser } from "react-icons/fa";
+import { MdDriveFileRenameOutline } from "react-icons/md";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 import { nanoid } from "nanoid";
@@ -33,7 +34,19 @@ const Register = () => {
             </span>
             <input
               required
-              {...register("username", { required: "Name is required" })}
+              {...register("username", { required: "username is required" })}
+              className="w-[17em] text-[1.1em] outline-none"
+              type="text"
+              placeholder="Username"
+            />
+          </div>
+          <div className="w-[22em] flex items-center gap-3 px-6 py-3 outline outline-gray-400 rounded-full">
+            <span className="text-gray-700 text-xl">
+              <MdDriveFileRenameOutline />
+            </span>
+            <input
+              required
+              {...register("name", { required: "Name is required" })}
               className="w-[17em] text-[1.1em] outline-none"
               type="text"
               placeholder="Full Name"

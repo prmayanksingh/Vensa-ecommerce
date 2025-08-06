@@ -2,14 +2,16 @@
   "users": [
     {
       "id": "hjeyu12093",
-      "username": "admin",
+      "username": "adminmaster",
+      "name": "admin",
       "email": "admin@gmail.com",
       "password": "admin123",
       "isAdmin": true
     },
     {
       "id": "dlwFymhZtcefR5FjHI52o",
-      "username": "mayank",
+      "username": "mayank123",
+      "name": "Mayank Pratap Singh",
       "email": "mayank@gmail.com",
       "password": "mayank",
       "isAdmin": false

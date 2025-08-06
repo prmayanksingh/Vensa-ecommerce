@@ -73,7 +73,7 @@ const ProductDetails = () => {
             {users?.isAdmin ? (
               <div className="flex flex-col sm:flex-row items-center gap-[1.1em] mt-[.4em]">
                 <Link
-                  to={`/updateproduct/${product?.id}`}
+                  to={`/admin/update-product/${product?.id}`}
                   className="h-[3em] w-[21.9em] flex items-center justify-center rounded outline active:scale-[98%]"
                 >
                   Update
