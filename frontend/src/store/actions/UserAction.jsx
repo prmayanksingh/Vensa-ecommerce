@@ -15,8 +15,8 @@ export const asyncCurrentUser = () => async (dispatch, setState) => {
 export const asyncLogoutUser = () => async (dispatch, setState) => {
   try {
     localStorage.removeItem("user");
-    dispatch(removeuser())
-    toast.success("You have logged out!!")
+    dispatch(removeuser());
+    toast.success("You have logged out!!");
   } catch (error) {
     console.log(error);
   }
@@ -28,12 +28,11 @@ export const asyncLoginUser = (user) => async (dispatch, setState) => {
       `/users?email=${user.email}&password=${user.password}`
     );
     if (data[0] === undefined) {
-      toast.error("Failed to login!!")
+      toast.error("Failed to login!!");
       return false;
-    }
-    else {
+    } else {
       localStorage.setItem("user", JSON.stringify(data[0]));
-      dispatch(asyncCurrentUser())
+      dispatch(asyncCurrentUser());
       toast.success("Login Successfully!!🙂");
       return true;
     }
@@ -45,9 +44,31 @@ export const asyncLoginUser = (user) => async (dispatch, setState) => {
 
 export const asyncRegisterUser = (user) => async (dispatch, setState) => {
   try {
-    const res = await axios.post("/users", user);
+    await axios.post("/users", user);
     toast.success("Registered succefully!🙂");
-    console.log(res);
+  } catch (error) {
+    toast.error(error);
+  }
+};
+
+export const asyncUpdateUser = (id, user) => async (dispatch, setState) => {
+  try {
+    const { data } = await axios.patch("/users/" + id, user);
+    console.log(data);
+    localStorage.setItem("user", JSON.stringify(data));
+    dispatch(asyncCurrentUser());
+    toast.success("Updated succefully!🙂");
+  } catch (error) {
+    toast.error(error);
+  }
+};
+
+export const asyncDeleteUser = (id) => async (dispatch, setState) => {
+  try {
+    await axios.delete("/users/" + id);
+    localStorage.removeItem("user");
+    dispatch(removeuser());
+    toast.success("Account Deleted!🥲");
   } catch (error) {
     toast.error(error);
   }

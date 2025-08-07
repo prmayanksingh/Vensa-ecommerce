@@ -3,9 +3,13 @@ import { HiOutlineUser } from "react-icons/hi2";
 import Nav from "../../components/Nav";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
-import { asyncLogoutUser } from "../../store/actions/UserAction";
+import {
+  asyncDeleteUser,
+  asyncLogoutUser,
+  asyncUpdateUser,
+} from "../../store/actions/UserAction";
 import { useNavigate } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const UserProfile = () => {
   const { register, handleSubmit, reset } = useForm();
@@ -15,7 +19,9 @@ const UserProfile = () => {
   const navigate = useNavigate();
 
   const submitHandler = (userdata) => {
-    console.log(userdata);
+    userdata.id = users.id;
+    dispatch(asyncUpdateUser(users.id, userdata));
+    setisEdit(!isEdit);
   };
 
   const logoutHandler = () => {
@@ -23,8 +29,14 @@ const UserProfile = () => {
     navigate("/");
   };
 
-  const editHandler = () => {
+  const editHandler = (e) => {
+    e.preventDefault();
     setisEdit(!isEdit);
+  };
+
+  const deleteHandler = () => {
+    dispatch(asyncDeleteUser(users.id));
+    navigate("/");
   };
 
   useEffect(() => {
@@ -36,7 +48,7 @@ const UserProfile = () => {
         password: users.password,
       });
     }
-  }, [users, reset]);
+  }, [users, reset, isEdit]);
 
   return (
     <section className="text-[3.7vw] bg-[#F5F6F8] sm:text-[2.6vw] md:text-[2vw] lg:text-[1.4vw] xl:text-[16px]">
@@ -130,7 +142,10 @@ const UserProfile = () => {
             </div>
             <div className="flex gap-[.9em]">
               {isEdit == true ? (
-                <button className="flex items-center justify-center w-[50%] text-[1.1em] outline text-black active:scale-[95%] py-[.4em] rounded-lg">
+                <button
+                  type="submit"
+                  className="flex items-center justify-center w-[50%] text-[1.1em] outline text-black active:scale-[95%] py-[.4em] rounded-lg"
+                >
                   Update
                 </button>
               ) : (
@@ -142,12 +157,23 @@ const UserProfile = () => {
                   Edit
                 </button>
               )}
-              <button
-                type="button"
-                className="w-[50%] text-[1.1em] bg-black text-white active:scale-[95%] py-[.5em] rounded-lg"
-              >
-                Delete
-              </button>
+              {isEdit == true ? (
+                <button
+                  onClick={editHandler}
+                  type="button"
+                  className="w-[50%] text-[1.1em] bg-black text-white active:scale-[95%] py-[.5em] rounded-lg"
+                >
+                  Cancle
+                </button>
+              ) : (
+                <button
+                  onClick={deleteHandler}
+                  type="button"
+                  className="w-[50%] text-[1.1em] bg-black text-white active:scale-[95%] py-[.5em] rounded-lg"
+                >
+                  Delete
+                </button>
+              )}
             </div>
           </form>
         </div>
