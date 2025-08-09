@@ -54,7 +54,6 @@ export const asyncRegisterUser = (user) => async (dispatch, setState) => {
 export const asyncUpdateUser = (id, user) => async (dispatch, setState) => {
   try {
     const { data } = await axios.patch("/users/" + id, user);
-    console.log(data);
     localStorage.setItem("user", JSON.stringify(data));
     dispatch(asyncCurrentUser());
     toast.success("Updated succefully!🙂");
@@ -73,3 +72,4 @@ export const asyncDeleteUser = (id) => async (dispatch, setState) => {
     toast.error(error);
   }
 };
+ 

@@ -7,6 +7,8 @@ import CreateProduct from "../pages/admin/CreateProduct";
 import ProductDetails from "../pages/ProductDetails";
 import UpdateProduct from "../pages/admin/UpdateProduct";
 import UserProfile from "../pages/users/UserProfile";
+import PageNotFound from "../pages/PageNotFound";
+import AuthWrapper from "./AuthWrapper";
 
 const MainRoute = () => {
   return (
@@ -18,10 +20,33 @@ const MainRoute = () => {
         <Route path="/profile" element={<UserProfile />} />
         //Products route
         <Route path="/products" element={<Products />} />
-        <Route path="/product/:id" element={<ProductDetails />} />
+        <Route
+          path="/product/:id"
+          element={
+            <AuthWrapper>
+              <ProductDetails />
+            </AuthWrapper>
+          }
+        />
         //Admin route
-        <Route path="/admin/create-product" element={<CreateProduct />} />
-        <Route path="/admin/update-product/:id" element={<UpdateProduct />} />
+        <Route
+          path="/admin/create-product"
+          element={
+            <AuthWrapper>
+              <CreateProduct />
+            </AuthWrapper>
+          }
+        />
+        <Route
+          path="/admin/update-product/:id"
+          element={
+            <AuthWrapper>
+              <UpdateProduct />
+            </AuthWrapper>
+          }
+        />
+        //PageNotFound
+        <Route path="*" element={<PageNotFound />} />
       </Routes>
     </>
   );
