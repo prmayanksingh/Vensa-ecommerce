@@ -7,6 +7,7 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { asyncDeleteProduct } from "../store/actions/ProductAction";
 import { toast } from "react-toastify";
+import { asyncUpdateUser } from "../store/actions/UserAction";
 
 const ProductDetails = () => {
   const [quantity, setquantity] = useState(1);
@@ -16,6 +17,23 @@ const ProductDetails = () => {
   const product = products?.find((product) => product.id === id);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  const cartHandler = (id) => {
+    const copyuser = { ...users, cart: [...users.cart] };
+    const x = copyuser.cart.findIndex((c) => c.product.id == id);
+    
+    if (x == -1) {
+      copyuser.cart.push({ product, quantity: quantity });
+    } else {
+       copyuser.cart[x] = {
+        product: product,
+        quantity: copyuser.cart[x].quantity + quantity
+       }
+    }
+    setquantity(1);
+    dispatch(asyncUpdateUser(copyuser.id, copyuser));
+    toast.success("Added to Cart!!")
+  };
 
   const incrementHandler = () => {
     setquantity(quantity + 1);
@@ -87,9 +105,12 @@ const ProductDetails = () => {
               </div>
             ) : (
               <div className="flex flex-col sm:flex-row items-center gap-[1.1em] mt-[.4em]">
-                <Link className="h-[3em] w-[21.9em] flex items-center justify-center rounded outline active:scale-[98%]">
+                <button
+                  onClick={() => cartHandler(product.id)}
+                  className="h-[3em] w-[21.9em] flex items-center justify-center rounded outline active:scale-[98%]"
+                >
                   Add to cart
-                </Link>
+                </button>
                 <button className="h-[3em] w-[21.9em] rounded bg-black text-white active:scale-[98%]">
                   Buy Now
                 </button>

@@ -6,7 +6,8 @@
       "name": "admin",
       "email": "admin@gmail.com",
       "password": "admin123",
-      "isAdmin": true
+      "isAdmin": true,
+      "cart": []
     },
     {
       "id": "dlwFymhZtcefR5FjHI52o",
@@ -14,7 +15,31 @@
       "name": "Mayank Pratap Singh",
       "email": "mayank@gmail.com",
       "password": "mayank",
-      "isAdmin": false
+      "isAdmin": false,
+      "cart": [
+        {
+          "product": {
+            "id": "f-SuZ77NgT4OWTA1y3Dn8",
+            "image": "https://images.pexels.com/photos/3945667/pexels-photo-3945667.jpeg",
+            "name": "Sony PlayStation Wireless Stereo Headset – Black",
+            "category": "headphones",
+            "price": "8499",
+            "description": "Immerse yourself in rich, high-fidelity sound with the Sony PlayStation Wireless Stereo Headset. Designed specifically for PlayStation consoles, this sleek black over-ear headset delivers powerful audio and clear chat with a built-in microphone. With wireless connectivity, 7.1 virtual surround sound, and up to 8 hours of battery life, it’s perfect for intense gaming sessions. Comfortable ear cushions and a foldable design make it ideal for long hours of gameplay and easy portability. Level up your gaming audio experience today."
+          },
+          "quantity": 3
+        },
+        {
+          "product": {
+            "id": "J6zW_oSau5s55tCclEbEl",
+            "image": "https://images.pexels.com/photos/90946/pexels-photo-90946.jpeg",
+            "name": "Fujifilm X-T10 Mirrorless Digital Camera (Body with 18-55mm Lens)",
+            "category": "electronics",
+            "price": "54999",
+            "description": "Capture stunning high-resolution images with the Fujifilm X-T10 Mirrorless Digital Camera. Designed for photography enthusiasts, it features a 16.3MP APS-C X-Trans CMOS II sensor and an advanced EXR Processor II for exceptional detail and color reproduction. The included Fujinon XF 18-55mm f/2.8-4 R LM OIS lens provides versatile shooting from wide-angle landscapes to close-up portraits. With fast autofocus, continuous shooting up to 8fps, and full HD 1080p video recording, this lightweight camera delivers professional performance in a compact body. Perfect for travel, events, and creative photography."
+          },
+          "quantity": 4
+        }
+      ]
     }
   ],
   "products": [
@@ -74,6 +99,5 @@
       "price": "1899",
       "description": "Stay effortlessly stylish with this off-white cotton shacket — a versatile blend of shirt and jacket. Featuring front chest pockets, button-down closure, and a relaxed fit, this lightweight layer is perfect for both casual and semi-formal looks. Wear it over a plain tee or button it up for a cleaner silhouette. Ideal for transitional weather and minimalist fashion lovers."
     }
-  ],
-  "carts": []
+  ]
 }

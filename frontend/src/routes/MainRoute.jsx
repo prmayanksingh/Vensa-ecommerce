@@ -23,9 +23,7 @@ const MainRoute = () => {
         <Route
           path="/product/:id"
           element={
-            <AuthWrapper>
               <ProductDetails />
-            </AuthWrapper>
           }
         />
         //Admin route

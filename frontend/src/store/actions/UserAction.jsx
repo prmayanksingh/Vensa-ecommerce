@@ -56,7 +56,6 @@ export const asyncUpdateUser = (id, user) => async (dispatch, setState) => {
     const { data } = await axios.patch("/users/" + id, user);
     localStorage.setItem("user", JSON.stringify(data));
     dispatch(asyncCurrentUser());
-    toast.success("Updated succefully!🙂");
   } catch (error) {
     toast.error(error);
   }

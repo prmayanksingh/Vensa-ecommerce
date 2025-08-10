@@ -136,7 +136,7 @@ const UserProfile = () => {
                 {...register("password", { required: "password is required" })}
                 className="px-[.9em] py-[.3em] text-[1em] rounded-md outline-none bg-gray-100 text-gray-500"
                 id="password"
-                type="text"
+                type={isEdit ? "text" : "password"}
                 placeholder="Enter your password"
               />
             </div>
