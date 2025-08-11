@@ -1,6 +1,6 @@
 import Nav from "../components/Nav";
 import { FiMinus } from "react-icons/fi";
-import { FaPlus } from "react-icons/fa6";
+import { FiPlus } from "react-icons/fi";
 import { MdCurrencyRupee } from "react-icons/md";
 import { useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
@@ -26,7 +26,7 @@ const ProductDetails = () => {
       copyuser.cart.push({ product, quantity: quantity });
     } else {
        copyuser.cart[x] = {
-        product: product,
+        product,
         quantity: copyuser.cart[x].quantity + quantity
        }
     }
@@ -49,7 +49,7 @@ const ProductDetails = () => {
   };
 
   return (
-    <div className="">
+    <section>
       <Nav />
       {products ? (
         <div className="lg:min-h-[calc(100vh-3.2rem)] flex flex-col lg:flex-row lg:justify-center p-[2em] sm:p-[3em] md:p-[3.5em] lg:px-[6em] lg:p-[2.2em] pt-[2.6em] sm:pt-[2.5em] md:pt-[2.8em] text-[3.7vw] sm:text-[2.2vw] md:text-[1.9vw] lg:text-[16px] gap-[0.7em] lg:gap-[4em]">
@@ -83,7 +83,7 @@ const ProductDetails = () => {
                 className="w-[2em] text-center"
                 type="text"
               />
-              <FaPlus
+              <FiPlus
                 className="active:scale-[85%]"
                 onClick={incrementHandler}
               />
@@ -130,7 +130,7 @@ const ProductDetails = () => {
       ) : (
         <h1 className="text-center text-[1.5em] my-[2em]">Loading...</h1>
       )}
-    </div>
+    </section>
   );
 };
 
