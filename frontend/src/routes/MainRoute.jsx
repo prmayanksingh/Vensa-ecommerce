@@ -1,14 +1,16 @@
 import { Route, Routes } from "react-router-dom";
-import Home from "../pages/Home";
-import Auth from "../pages/Auth";
-import Cart from "../pages/Cart";
-import Products from "../pages/Products";
-import CreateProduct from "../pages/admin/CreateProduct";
-import ProductDetails from "../pages/ProductDetails";
-import UpdateProduct from "../pages/admin/UpdateProduct";
-import UserProfile from "../pages/users/UserProfile";
-import PageNotFound from "../pages/PageNotFound";
-import AuthWrapper from "./AuthWrapper";
+import { lazy } from "react";
+const Home = lazy(() => import("../pages/Home"));
+const Auth = lazy(() => import("../pages/Auth"));
+const Cart = lazy(() => import("../pages/Cart"));
+const Products = lazy(() => import("../pages/Products"));
+const CreateProduct = lazy(() => import("../pages/admin/CreateProduct"));
+const ProductDetails = lazy(() => import("../pages/ProductDetails"));
+const UpdateProduct = lazy(() => import("../pages/admin/UpdateProduct"));
+const UserProfile = lazy(() => import("../pages/users/UserProfile"));
+const PageNotFound = lazy(() => import("../pages/PageNotFound"));
+const AuthWrapper = lazy(() => import("./AuthWrapper"));
+const UnauthWrapper = lazy(() => import("./UnauthWrapper"));
 
 const MainRoute = () => {
   return (
@@ -16,14 +18,30 @@ const MainRoute = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/cart" element={<Cart />} />
-        <Route path="/auth" element={<Auth />} />
-        <Route path="/profile" element={<UserProfile />} />
+        <Route
+          path="/auth"
+          element={
+            <UnauthWrapper>
+              <Auth />
+            </UnauthWrapper>
+          }
+        />
+        <Route
+          path="/profile"
+          element={
+            <AuthWrapper>
+              <UserProfile />
+            </AuthWrapper>
+          }
+        />
         //Products route
         <Route path="/products" element={<Products />} />
         <Route
           path="/product/:id"
           element={
+            <AuthWrapper>
               <ProductDetails />
+            </AuthWrapper>
           }
         />
         //Admin route

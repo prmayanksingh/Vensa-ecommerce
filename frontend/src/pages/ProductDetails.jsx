@@ -21,18 +21,18 @@ const ProductDetails = () => {
   const cartHandler = (id) => {
     const copyuser = { ...users, cart: [...users.cart] };
     const x = copyuser.cart.findIndex((c) => c.product.id == id);
-    
+
     if (x == -1) {
       copyuser.cart.push({ product, quantity: quantity });
     } else {
-       copyuser.cart[x] = {
+      copyuser.cart[x] = {
         product,
-        quantity: copyuser.cart[x].quantity + quantity
-       }
+        quantity: copyuser.cart[x].quantity + quantity,
+      };
     }
     setquantity(1);
     dispatch(asyncUpdateUser(copyuser.id, copyuser));
-    toast.success("Added to Cart!!")
+    toast.success("Added to Cart!!");
   };
 
   const incrementHandler = () => {
@@ -92,13 +92,13 @@ const ProductDetails = () => {
               <div className="flex flex-col sm:flex-row items-center gap-[1.1em] mt-[.4em]">
                 <Link
                   to={`/admin/update-product/${product?.id}`}
-                  className="h-[3em] w-[21.9em] flex items-center justify-center rounded outline active:scale-[98%]"
+                  className="h-[3em] w-[21.9em] flex items-center justify-center rounded outline active:scale-[98%] hover:bg-gray-100"
                 >
                   Update
                 </Link>
                 <button
                   onClick={deleteHandler}
-                  className="h-[3em] w-[21.9em] rounded bg-black text-white active:scale-[98%]"
+                  className="h-[3em] w-[21.9em] rounded bg-black text-white active:scale-[98%] hover:bg-gray-700"
                 >
                   Delete
                 </button>
@@ -107,11 +107,11 @@ const ProductDetails = () => {
               <div className="flex flex-col sm:flex-row items-center gap-[1.1em] mt-[.4em]">
                 <button
                   onClick={() => cartHandler(product.id)}
-                  className="h-[3em] w-[21.9em] flex items-center justify-center rounded outline active:scale-[98%]"
+                  className="h-[3em] w-[21.9em] flex items-center justify-center rounded outline active:scale-[98%] hover:bg-gray-100"
                 >
                   Add to cart
                 </button>
-                <button className="h-[3em] w-[21.9em] rounded bg-black text-white active:scale-[98%]">
+                <button className="h-[3em] w-[21.9em] rounded bg-black text-white active:scale-[98%] hover:bg-gray-700">
                   Buy Now
                 </button>
               </div>

@@ -12,9 +12,8 @@ const Login = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const loginHandler = async (userData) => {
-    const res = await dispatch(asyncLoginUser(userData));
-    if (res) navigate("/");
+  const loginHandler = (userData) => {
+    dispatch(asyncLoginUser(userData));
     reset();
   };
 

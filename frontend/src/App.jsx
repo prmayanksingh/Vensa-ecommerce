@@ -1,17 +1,21 @@
 import { useEffect } from "react";
-import Home from "./pages/Home";
 import MainRoute from "./routes/MainRoute";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { asyncCurrentUser } from "./store/actions/UserAction";
 import { asyncLoadProducts } from "./store/actions/ProductAction";
 
 const App = () => {
   const dispatch = useDispatch();
+  const { users } = useSelector((state) => state.userReducer);
+  const { products } = useSelector((state) => state.productReducer);
 
   useEffect(() => {
-    dispatch(asyncCurrentUser());
-    dispatch(asyncLoadProducts());
-  }, []);
+    !users && dispatch(asyncCurrentUser());
+  }, [users]);
+
+  useEffect(() => {
+    products.length == 0 && dispatch(asyncLoadProducts());
+  }, [products]);
 
   return (
     <div className="font-[Helvetica] tracking-wide">
