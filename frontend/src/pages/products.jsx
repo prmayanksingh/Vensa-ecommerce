@@ -1,36 +1,13 @@
-import { useSelector } from "react-redux";
 import Nav from "../components/Nav";
-import ProductCard from "../components/ProductCard";
 import { FaArrowLeftLong } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 import InfiniteScroll from "react-infinite-scroll-component";
-import { Suspense, useEffect, useState } from "react";
-import axios from "../api/axiosconfig";
+import { lazy, Suspense } from "react";
+import useInfiniteProducts from "../utils/useInfiniteProducts";
+const ProductCard = lazy(() => import("../components/ProductCard"));
 
 const Products = () => {
-  // const { products } = useSelector((state) => state.productReducer);
-  const [products, setproducts] = useState([]);
-  const [hasMore, sethasMore] = useState(true);
-
-  const fetchMoreProducts = async () => {
-    try {
-      const { data } = await axios.get(
-        `/products?_limit=8&_start=${products.length}`
-      );
-      if (data.length == 0) {
-        sethasMore(false);
-      } else {
-        sethasMore(true);
-        setproducts([...products, ...data]);
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  useEffect(() => {
-    fetchMoreProducts();
-  }, []);
+  const { hasMore, products, fetchMoreProducts } = useInfiniteProducts();
 
   return (
     <section>
@@ -63,11 +40,16 @@ const Products = () => {
         }
       >
         <div className="xl:max-w-[90.6rem] mx-auto px-11 pt-7 pb-5 flex flex-col sm:flex-row sm:flex-wrap sm:justify-center xl:justify-start gap-[1em] sm:gap-[1.2em] lg:gap-[1.7em]">
-          <Suspense fallback={<h4 className="text-[1.3em] text-center my-10">Loading...</h4>} >
-            {products.map((product) => (
-              <ProductCard key={product.id} product={product} />
-            ))}
-          </Suspense>
+          {products.map((product) => (
+            <Suspense
+              key={product.id}
+              fallback={
+                <div className="w-full sm:w-[20em] h-[30em] rounded animate-pulse bg-gray-100"></div>
+              }
+            >
+              <ProductCard product={product} />
+            </Suspense>
+          ))}
         </div>
       </InfiniteScroll>
     </section>
