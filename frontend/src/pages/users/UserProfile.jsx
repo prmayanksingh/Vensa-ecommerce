@@ -1,5 +1,6 @@
 import { BiLogOutCircle } from "react-icons/bi";
 import { HiOutlineUser } from "react-icons/hi2";
+import { FaArrowLeftLong } from "react-icons/fa6";
 import Nav from "../../components/Nav";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
@@ -8,8 +9,9 @@ import {
   asyncLogoutUser,
   asyncUpdateUser,
 } from "../../store/actions/UserAction";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
+import { toast } from "react-toastify";
 
 const UserProfile = () => {
   const { register, handleSubmit, reset } = useForm();
@@ -21,12 +23,15 @@ const UserProfile = () => {
   const submitHandler = (userdata) => {
     userdata.id = users.id;
     dispatch(asyncUpdateUser(users.id, userdata));
+    toast.success("Profile Updated Successfully!!😁");
     setisEdit(!isEdit);
   };
 
   const logoutHandler = () => {
-    dispatch(asyncLogoutUser());
-    navigate("/");
+    if (confirm("Are you sure want to logout")) {
+      dispatch(asyncLogoutUser());
+      navigate("/");
+    }
   };
 
   const editHandler = (e) => {
@@ -35,8 +40,10 @@ const UserProfile = () => {
   };
 
   const deleteHandler = () => {
-    dispatch(asyncDeleteUser(users.id));
-    navigate("/");
+    if (confirm("Are you sure want to delete your account!!?")) {
+      dispatch(asyncDeleteUser(users.id));
+      navigate("/");
+    }
   };
 
   useEffect(() => {
@@ -53,7 +60,13 @@ const UserProfile = () => {
   return (
     <section className="text-[3.7vw] bg-[#F5F6F8] sm:text-[2.6vw] md:text-[2vw] lg:text-[1.4vw] xl:text-[16px]">
       <Nav />
-      <div className="w-full h-[3.2em] flex justify-end items-center px-[1.6em] pt-[.5em] md:px-[3em] lg:px-[3em]">
+      <div className="w-full h-[3.2em] flex justify-between items-center px-[1.6em] md:px-[3em] lg:px-[5.5em] pt-[.5em] lg:pt-[1.4em]">
+        <Link
+          to={-1}
+          className="text-[1.2em] px-[1.1em] py-[.2em] rounded text-white bg-gray-500"
+        >
+          <FaArrowLeftLong />
+        </Link>
         <button
           onClick={logoutHandler}
           className="w-fit h-[1.8em] flex items-center gap-1 bg-gray-500 text-[1em] text-white rounded px-[1em] py-[.2em]"
@@ -144,7 +157,7 @@ const UserProfile = () => {
               {isEdit == true ? (
                 <button
                   type="submit"
-                  className="flex items-center justify-center w-[50%] text-[1.1em] outline text-black active:scale-[95%] py-[.4em] rounded-lg"
+                  className="flex items-center justify-center w-[50%] text-[1.1em] outline text-black active:scale-[95%] py-[.4em] rounded-lg hover:bg-gray-100"
                 >
                   Update
                 </button>
@@ -152,7 +165,7 @@ const UserProfile = () => {
                 <button
                   onClick={editHandler}
                   type="button"
-                  className="flex items-center justify-center w-[50%] text-[1.1em] outline text-black active:scale-[95%] py-[.4em] rounded-lg"
+                  className="flex items-center justify-center w-[50%] text-[1.1em] outline text-black active:scale-[95%] py-[.4em] rounded-lg hover:bg-gray-100"
                 >
                   Edit
                 </button>
@@ -161,7 +174,7 @@ const UserProfile = () => {
                 <button
                   onClick={editHandler}
                   type="button"
-                  className="w-[50%] text-[1.1em] bg-black text-white active:scale-[95%] py-[.5em] rounded-lg"
+                  className="w-[50%] text-[1.1em] bg-black text-white active:scale-[95%] py-[.5em] rounded-lg hover:bg-gray-700"
                 >
                   Cancle
                 </button>
@@ -169,7 +182,7 @@ const UserProfile = () => {
                 <button
                   onClick={deleteHandler}
                   type="button"
-                  className="w-[50%] text-[1.1em] bg-black text-white active:scale-[95%] py-[.5em] rounded-lg"
+                  className="w-[50%] text-[1.1em] bg-black text-white active:scale-[95%] py-[.5em] rounded-lg hover:bg-gray-700"
                 >
                   Delete
                 </button>

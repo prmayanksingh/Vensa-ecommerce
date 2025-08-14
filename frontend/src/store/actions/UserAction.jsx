@@ -2,7 +2,7 @@ import axios from "../../api/axiosconfig";
 import { toast } from "react-toastify";
 import { loaduser, removeuser } from "../reducers/UserSlice";
 
-export const asyncCurrentUser = () => async (dispatch, setState) => {
+export const asyncCurrentUser = () => (dispatch, setState) => {
   try {
     const user = JSON.parse(localStorage.getItem("user"));
     if (user) dispatch(loaduser(user));

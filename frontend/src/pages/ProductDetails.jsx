@@ -8,6 +8,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { asyncDeleteProduct } from "../store/actions/ProductAction";
 import { toast } from "react-toastify";
 import { asyncUpdateUser } from "../store/actions/UserAction";
+import { FaArrowLeftLong } from "react-icons/fa6";
 
 const ProductDetails = () => {
   const [quantity, setquantity] = useState(1);
@@ -44,15 +45,34 @@ const ProductDetails = () => {
   };
 
   const deleteHandler = () => {
-    dispatch(asyncDeleteProduct(id));
-    navigate("/products");
+    if (confirm("Are you sure want to delete the product?!")) {
+      dispatch(asyncDeleteProduct(id));
+      navigate("/products");
+      toast.success("Product deleted!!")
+    }
+  };
+
+  const buynowHandler = () => {
+    if (confirm("Confirm the order!!")) {
+      toast.success("Order Placed!!😁");
+    }
   };
 
   return (
     <section>
       <Nav />
+      <div className="flex py-[1.4em] px-[1.5em] md:px-[1.5em]">
+        <div className="w-[10%]  flex items-center justify-center">
+          <Link
+            to={-1}
+            className="text-[1.1em] px-[1.2em] py-[.25em] rounded text-white bg-gray-500"
+          >
+            <FaArrowLeftLong />
+          </Link>
+        </div>
+      </div>
       {products ? (
-        <div className="lg:min-h-[calc(100vh-3.2rem)] flex flex-col lg:flex-row lg:justify-center p-[2em] sm:p-[3em] md:p-[3.5em] lg:px-[6em] lg:p-[2.2em] pt-[2.6em] sm:pt-[2.5em] md:pt-[2.8em] text-[3.7vw] sm:text-[2.2vw] md:text-[1.9vw] lg:text-[16px] gap-[0.7em] lg:gap-[4em]">
+        <div className="lg:min-h-[calc(100vh-3.2rem)] flex flex-col lg:flex-row lg:justify-center p-[2em] sm:p-[3em] md:p-[3.5em] lg:px-[6em] lg:p-[2.2em] pt-[2.6em] sm:pt-[2.5em] md:pt-[2.8em] lg:pt-[.8em] text-[3.7vw] sm:text-[2.2vw] md:text-[1.9vw] lg:text-[16px] gap-[0.7em] lg:gap-[4em]">
           <div className="rounded sm:h-[40em] md:h-[46em] lg:h-[38vw] lg:w-[40%]">
             <img
               className="h-full w-full object-cover object-center rounded"
@@ -111,7 +131,10 @@ const ProductDetails = () => {
                 >
                   Add to cart
                 </button>
-                <button className="h-[3em] w-[21.9em] rounded bg-black text-white active:scale-[98%] hover:bg-gray-700">
+                <button
+                  onClick={buynowHandler}
+                  className="h-[3em] w-[21.9em] rounded bg-black text-white active:scale-[98%] hover:bg-gray-700"
+                >
                   Buy Now
                 </button>
               </div>

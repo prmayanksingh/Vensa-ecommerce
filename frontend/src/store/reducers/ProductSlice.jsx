@@ -11,8 +11,11 @@ const productReducer = createSlice({
     loadlazyproduct: (state, action) => {
       state.products = [...state.products, ...action.payload];
     },
+    removeProduct: (state, action) => {
+      state.products = state.products.filter((p) => p.id !== action.payload);
+    },
   },
 });
 
-export const { loadlazyproduct } = productReducer.actions;
+export const { loadlazyproduct, removeProduct } = productReducer.actions;
 export default productReducer.reducer;

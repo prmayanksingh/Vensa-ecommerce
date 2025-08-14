@@ -6,6 +6,7 @@ import { FiPlus } from "react-icons/fi";
 import { useDispatch, useSelector } from "react-redux";
 import { asyncUpdateUser } from "../store/actions/UserAction";
 import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const Cart = () => {
   const { users } = useSelector((state) => state.userReducer);
@@ -35,12 +36,28 @@ const Cart = () => {
     dispatch(asyncUpdateUser(copyuser.id, copyuser));
   };
 
+  let totalPrice = 0;
+  users?.cart.forEach((elem) => {
+    totalPrice += parseInt(elem.product.price) * parseInt(elem.quantity);
+  });
+
+  const checkoutHandler = () => {
+    if (confirm("Confirm the order!!")) {
+      toast.success("Order Placed!!😁");
+      const copyuser = { ...users, cart: [] };
+      dispatch(asyncUpdateUser(copyuser.id, copyuser));
+    }
+  };
+
   return (
     <section>
       <Nav />
       <div className="flex py-[1.2em] px-[1.5em] md:px-[1.5em]">
         <div className="w-[10%]  flex items-center justify-center">
-          <Link to={-1} className="text-[1.1em] px-[1.2em] py-[.25em] rounded text-white bg-gray-500">
+          <Link
+            to={-1}
+            className="text-[1.1em] px-[1.2em] py-[.25em] rounded text-white bg-gray-500"
+          >
             <FaArrowLeftLong />
           </Link>
         </div>
@@ -52,7 +69,7 @@ const Cart = () => {
         <div className="w-[10%] "></div>
       </div>
       {users?.cart[0] != undefined ? (
-        <div className="px-[1.7em] md:px-[1.4em] py-[1.5em] flex flex-col items-center gap-[2.3em] md:gap-[1.1em] text-[3.7vw] sm:text-[20px]">
+        <div className="px-[1.7em] md:px-[1.4em] py-[1.5em] mb-[1em] flex flex-col items-center gap-[2.3em] md:gap-[1.1em] text-[3.7vw] sm:text-[20px]">
           {users?.cart.map((elem, index) => (
             <div
               key={elem.product.id}
@@ -66,13 +83,13 @@ const Cart = () => {
                 />
               </div>
               <h1 className="text-[1.2em] md:text-[.9em] font-bold text-center text-gray-600">
-                {elem.product.name.slice(0, 33)}...
+                {elem.product.name.slice(0, 30)}...
               </h1>
               <h1 className="text-[.9em] font-bold text-gray-500">
                 {elem.product.category}
               </h1>
               <h1 className=" text-[.9em] font-bold flex items-center justify-center">
-                <MdCurrencyRupee className="text-[1.1em]" />
+                <MdCurrencyRupee className="text-[1.1em] mt-[.15em]" />
                 {elem.product.price}
               </h1>
               <div className="w-fit px-2 py-1 my-[0.3em] lg:my-[0.6em] text-[1em] md:text-[.8em] rounded flex items-center gap-[0.5em] outline translate-x-[3%]">
@@ -93,6 +110,24 @@ const Cart = () => {
               </div>
             </div>
           ))}
+          <div className="w-full md:w-[20em] p-[1.7em] md:p-[1.2em] mt-[.7em] text-center flex flex-col items-center gap-[.1em] outline rounded-lg bg-gray-100">
+            <h1 className="text-[1.2em] md:text-[.9em]">
+              You have {users?.cart.length} items in cart.
+            </h1>
+            <h1 className="flex text-[1.2em] md:text-[.9em]">
+              Total Price:{" "}
+              <span className="flex">
+                <MdCurrencyRupee className="text-[1.1em] mt-[.15em]" />
+                {totalPrice}
+              </span>
+            </h1>
+            <button
+              onClick={checkoutHandler}
+              className="px-[1.5em] py-[.4em] text-[1.2em] md:text-[.8em] mt-[.6em] rounded bg-black text-white hover:bg-gray-700 "
+            >
+              Proceed to checkout
+            </button>
+          </div>
         </div>
       ) : (
         <h1 className="text-[1.3em] text-gray-500 text-center mt-[1.5em]">
