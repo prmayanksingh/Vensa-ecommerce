@@ -5,7 +5,7 @@ import introImage from "../assets/introImage.webp";
 
 const IntroSection = () => {
   return (
-    <section className="sm:px-[2em] md:px-[2.5em] lg:px-[1em] xl:px-[2.5em] lg:py-[1em] text-[3.75vw] sm:text-[2.4vw] md:text-[2vw] lg:text-[17px] xl:text-[1vw]">
+    <section className="pb-[1em] lg:pb-[1.5em] sm:px-[2em] md:px-[2.5em] lg:px-[1em] xl:px-[2.5em] lg:py-[1em] text-[3.75vw] sm:text-[2.4vw] md:text-[2vw] lg:text-[17px] xl:text-[1vw]">
       <div className="p-[1.6em] flex flex-col lg:flex-row gap-[1.5em] xl:gap-[1.8em]">
         <div className="lg:w-[50%]">
           <img className="h-full w-full object-cover rounded-xl" src={introImage} alt="" />
@@ -33,7 +33,7 @@ const IntroSection = () => {
         </div>
       </div>
       <div className="px-[1.6em] py-[1em] xl:py-[1.2em] flex flex-col lg:flex-row items-center justify-center gap-[1em]">
-        <div className="p-[1.5em] xl:p-[3em] rounded-lg flex flex-col items-center gap-[1.2em]">
+        <div className="p-[1.5em] xl:p-[3em] rounded-4xl flex flex-col items-center gap-[1.2em]">
           <MdVerified className="text-[1.7em]" />
           <div className="text-center flex flex-col gap-[.7em]">
             <h2 className="text-[1em] font-[gilroy] font-semibold">
@@ -48,7 +48,7 @@ const IntroSection = () => {
 
         <div className="h-[.2rem] lg:h-[5rem] w-[40%] sm:w-[25%] lg:w-[.4rem] text-center bg-gray-200"></div>
 
-        <div className="p-[1.5em] xl:p-[2em] rounded-lg flex flex-col items-center gap-[1.2em]">
+        <div className="p-[1.5em] xl:p-[2em] rounded-4xl flex flex-col items-center gap-[1.2em]">
           <MdDashboard className="text-[1.7em]" />
           <div className="text-center flex flex-col gap-[.7em]">
             <h2 className="text-[1em] font-[gilroy] font-semibold">
@@ -63,7 +63,7 @@ const IntroSection = () => {
 
         <div className="h-[.2rem] lg:h-[5rem] w-[40%] sm:w-[25%] lg:w-[.4rem] text-center bg-gray-200"></div>
 
-        <div className="p-[1.5em] xl:p-[2em] rounded-lg flex flex-col items-center gap-[1.2em]">
+        <div className="p-[1.5em] xl:p-[2em] rounded-4xl flex flex-col items-center gap-[1.2em]">
           <FaImages className="text-[1.7em]" />
           <div className="text-center flex flex-col gap-[.7em]">
             <h2 className="text-[1em] font-[gilroy] font-semibold">
