@@ -5,13 +5,13 @@ import introImage from "../assets/introImage.webp";
 
 const IntroSection = () => {
   return (
-    <section className="pb-[1em] lg:pb-[1.5em] sm:px-[2em] md:px-[2.5em] lg:px-[1em] xl:px-[2.5em] lg:py-[1em] text-[3.75vw] sm:text-[2.4vw] md:text-[2vw] lg:text-[17px] xl:text-[1vw]">
+    <section className="pb-[1em] lg:pb-[1.5em] sm:px-[2em] md:px-[2.5em] lg:px-[1em] xl:px-[2.5em] lg:py-[1em] text-[3.75vw] sm:text-[2.4vw] md:text-[2vw] lg:text-[17px] xl:text-[clamp(14px,1.1vw,18px)]">
       <div className="p-[1.6em] flex flex-col lg:flex-row gap-[1.5em] xl:gap-[1.8em]">
         <div className="lg:w-[50%]">
           <img className="h-full w-full object-cover rounded-xl" src={introImage} alt="" />
         </div>
-        <div className="lg:w-[50%] p-[1.3em] lg:p-[1.7em]  xl:text-[1.2vw] rounded-xl bg-gray-100 flex flex-col lg:justify-between gap-[2.1em]">
-          <div className="flex flex-col gap-[1em]">
+        <div className="lg:w-[50%] p-[1.3em] lg:p-[1.7em]  xl:text-[clamp(14px,1.2vw,20px)] rounded-xl bg-gray-100 flex flex-col lg:justify-between gap-[2.1em]">
+          <div className="flex flex-col gap-[1em] xl:gap-[clamp(14px,1.2vw,28px)]">
             <h1 className="text-[1.5em] font-[gilroy] font-bold leading-[1.3em]">
               Discover Quality Fashion and Products for Every Lifestyle!
             </h1>
