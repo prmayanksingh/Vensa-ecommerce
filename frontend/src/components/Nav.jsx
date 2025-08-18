@@ -11,7 +11,7 @@ const Nav = () => {
   const { users } = useSelector((state) => state.userReducer);
 
   return (
-    <nav className="h-[3.2rem] bg-gray-200 px-4 sm:px-7 xl:px-17 flex items-center justify-between text-[4vw] sm:text-[17px]">
+    <nav className="h-[3.2rem] bg-gray-200 px-4 sm:px-7 xl:px-17 flex items-center justify-between text-[clamp(10px,4vw,16px)] sm:text-[17px]">
       <Link to={"/"} className="font-[monument] text-[1.7em] font-bold">
         vensa.co
       </Link>

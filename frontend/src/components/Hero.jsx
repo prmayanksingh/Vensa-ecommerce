@@ -1,13 +1,10 @@
 import { IoIosArrowForward } from "react-icons/io";
 import hero from "../assets/hero.webp";
-import Nav from "./Nav";
 import { Link } from "react-router-dom";
 
 const Hero = () => {
   return (
-    <>
-      <Nav />
-      <div className="relative z-1 w-full h-[83vh] lg:h-[calc(100vh-3.2rem)] xl:h-[calc(100vh-3.2rem)] text-[3.7vw] sm:text-[16px] flex items-end overflow-hidden">
+      <div className="relative z-1 w-full h-[83vh] lg:h-[calc(100vh-3.2rem)] xl:h-[calc(100vh-3.2rem)] text-[clamp(10px,3.7vw,16px)] sm:text-[16px] flex items-end overflow-hidden">
         <img
           className="absolute object-no-repeat object-[30%] xl:object-[center_40%] -z-1 h-full w-full object-cover"
           src={hero}
@@ -34,7 +31,6 @@ const Hero = () => {
           </div>
         </div>
       </div>
-    </>
   );
 };
 

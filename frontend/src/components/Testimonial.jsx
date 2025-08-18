@@ -4,7 +4,7 @@ import { FaStar } from "react-icons/fa6";
 
 const Testimonial = () => {
   return (
-    <section className="px-[1.5em] sm:px-[4em] md:px-[7em] lg:px-[27vw] xl:px-[33vw] py-[4em] flex flex-col items-center gap-[1.55em] lg:gap-[1.7em] xl:gap-[2em] text-[3.7vw] sm:text-[2.7vw] md:text-[2vw] lg:text-[18px] xl:text-[clamp(14px,1.1vw,19px)]">
+    <section className="px-[1.5em] sm:px-[4em] md:px-[7em] lg:px-[27vw] xl:px-[33vw] py-[4em] flex flex-col items-center gap-[1.55em] lg:gap-[1.7em] xl:gap-[2em] text-[clamp(10px,3.7vw,16px)] sm:text-[2.7vw] md:text-[2vw] lg:text-[18px] xl:text-[clamp(14px,1.1vw,19px)]">
       <h1 className="text-[2em] xl:text-[2.2em] font-bold tracking-wider mb-[-.4em]">
         Testimonial
       </h1>

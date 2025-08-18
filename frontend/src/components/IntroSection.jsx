@@ -5,7 +5,7 @@ import introImage from "../assets/introImage.webp";
 
 const IntroSection = () => {
   return (
-    <section className="pb-[1em] lg:pb-[1.5em] sm:px-[2em] md:px-[2.5em] lg:px-[1em] xl:px-[2.5em] lg:py-[1em] text-[3.75vw] sm:text-[2.4vw] md:text-[2vw] lg:text-[17px] xl:text-[clamp(14px,1.1vw,18px)]">
+    <section className="pb-[1em] lg:pb-[1.5em] sm:px-[2em] md:px-[2.5em] lg:px-[1em] xl:px-[2.5em] lg:py-[1em] text-[clamp(13px,3.75vw,16px)] sm:text-[2.4vw] md:text-[2vw] lg:text-[17px] xl:text-[clamp(14px,1.1vw,18px)]">
       <div className="p-[1.6em] flex flex-col lg:flex-row gap-[1.5em] xl:gap-[1.8em]">
         <div className="lg:w-[50%]">
           <img className="h-full w-full object-cover rounded-xl" src={introImage} alt="" />
