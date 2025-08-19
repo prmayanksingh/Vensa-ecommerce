@@ -28,7 +28,7 @@ const IntroSection = () => {
             </h3>
           </div>
           <button className="w-fit px-[1.2em] py-[.4em] shadow shadow-gray-400 rounded-lg bg-white">
-            Shop Now
+            Explore the collection
           </button>
         </div>
       </div>

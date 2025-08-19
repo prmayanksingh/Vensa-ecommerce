@@ -5,6 +5,7 @@ import Testimonial from "../components/Testimonial";
 import CategoryShowcase from "../components/CategoryShowcase";
 import FAQSection from "../components/FAQSection";
 import Nav from "../components/Nav";
+import PromoSection from "../components/PromoSection";
 
 const Home = () => {
   return (
@@ -17,6 +18,7 @@ const Home = () => {
       <Testimonial />
       <CategoryShowcase />
       <FAQSection />
+      <PromoSection />
     </section>
   );
 };

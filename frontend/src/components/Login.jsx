@@ -3,14 +3,10 @@ import { RiLockPasswordLine } from "react-icons/ri";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { asyncLoginUser } from "../store/actions/UserAction";
-import { useNavigate } from "react-router-dom";
-import { useEffect } from "react";
 
 const Login = () => {
   const { handleSubmit, register, reset } = useForm();
-  const { user } = useSelector((state) => state.userReducer);
   const dispatch = useDispatch();
-  const navigate = useNavigate();
 
   const loginHandler = (userData) => {
     dispatch(asyncLoginUser(userData));
