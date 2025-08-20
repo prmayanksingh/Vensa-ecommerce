@@ -13,7 +13,7 @@ const PromoSection = () => {
         </div>
         <div className="w-full md:w-[48%] h-[50%] md:h-full px-[1.2em] md:px-[0em] py-[2.2em] flex flex-col justify-between md:justify-center md:items-end md:gap-[4em]">
           <div className="flex flex-col md:items-end gap-[.8em] md:gap-[1em]">
-            <h1 className="text-[2.1em] lg:text-[2.4em] w-[55%] md:w-[80%] lg:w-[7.5em] md:text-right font-bold leading-[1.3em]">
+            <h1 className="text-[2.1em] lg:text-[2.4em] w-[62%] md:w-[80%] lg:w-[7.5em] md:text-right font-bold leading-[1.3em]">
               Shop Now for Exclusive Styles!
             </h1>
             <h3 className="text-[1em] lg:text-[1em] sm:w-[80%] md:w-[88%] lg:w-[23em] md:text-right text-gray-600 leading-[1.2em]">

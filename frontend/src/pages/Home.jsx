@@ -6,6 +6,7 @@ import CategoryShowcase from "../components/CategoryShowcase";
 import FAQSection from "../components/FAQSection";
 import Nav from "../components/Nav";
 import PromoSection from "../components/PromoSection";
+import Footer from "../components/Footer";
 
 const Home = () => {
   return (
@@ -19,6 +20,7 @@ const Home = () => {
       <CategoryShowcase />
       <FAQSection />
       <PromoSection />
+      <Footer />
     </section>
   );
 };
