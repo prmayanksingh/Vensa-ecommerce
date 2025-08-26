@@ -2,7 +2,7 @@ import { IoIosArrowDown } from "react-icons/io";
 
 const FAQSection = () => {
   return (
-    <section className="px-[1.6em] sm:px-[3em] md:px-[3.6em] lg:px-[2.6em] xl:px-[clamp(60px,5vw,100px)] py-[4em] xl:py-[6em] flex flex-col gap-[3em] text-[clamp(10px,3.7vw,16px)] sm:text-[2.5vw] md:text-[2vw] lg:text-[clamp(10px,1.5vw,17px)] xl:text-[clamp(14px,1.2vw,19px)]">
+    <section className="px-[1.6em] sm:px-[3em] md:px-[3.6em] lg:px-[2.6em] xl:px-[clamp(60px,5vw,100px)] py-[4em] xl:py-[6em] flex flex-col gap-[3em] text-[clamp(10px,3.7vw,15px)] sm:text-[clamp(14px,2.5vw,16px)] md:text-[clamp(15px,2vw,17px)] lg:text-[clamp(10px,1.5vw,17px)] xl:text-[clamp(14px,1.2vw,19px)]">
       <div className="flex flex-col gap-[.4em]">
         <h1 className="text-[1.7em] lg:text-[2em] font-bold tracking-wide">
           Frequently Asked Questions

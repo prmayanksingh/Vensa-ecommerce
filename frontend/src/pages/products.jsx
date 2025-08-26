@@ -11,7 +11,6 @@ const Products = () => {
 
   return (
     <section>
-      <Nav />
       <div className="flex py-[1.2em] px-[1.5em] md:px-[1.5em]">
         <div className="w-[10%]  flex items-center justify-center">
           <Link

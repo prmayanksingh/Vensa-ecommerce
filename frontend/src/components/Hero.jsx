@@ -10,11 +10,11 @@ const Hero = () => {
           src={hero}
           alt=""
         />
-        <div className="text-white pl-4 pb-8 sm:pl-8 sm:pb-10 lg:pl-14 lg:pb-14 xl:pl-18 xl:pb-15">
+        <div className="text-white px-3 pb-8 sm:pl-8 sm:pb-10 lg:pl-14 lg:pb-14 xl:pl-18 xl:pb-15 flex flex-col gap-[.4em]">
           <h1 className="text-[3.94em] sm:text-[3.7em] lg:text-[4em] xl:text-[4.5em] 2xl:text-[5.6vw] font-bold font-[monument]">
             Vensa.co
           </h1>
-          <p className="sm:w-[70%] text-[1.1em] xl:text-[clamp(14px,1.2vw,21px)] font-semibold text-[#9f9f9f] -mt-2 sm:-mt-1 leading-[1.4em]">
+          <p className="sm:w-[70%] text-[1.1em] xl:text-[clamp(14px,1.2vw,18px)] font-semibold text-[#9f9f9f] -mt-2 sm:-mt-1 leading-[1.4em]">
             Vensa.co offers trendy, high-quality products at affordable prices
             perfect for every lifestyle and need.
           </p>

@@ -19,8 +19,7 @@ const CreateProduct = () => {
   };
 
   return (
-    <section className="text-[3.7vw] sm:text-[2.6vw] md:text-[2vw] lg:text-[1.4vw] xl:text-[16px]">
-      <Nav />
+    <section className="text-[clamp(11px,3.7vw,15px)] sm:text-[clamp(13px,2.6vw,16px)] md:text-[clamp(13px,2vw,17px)] lg:text-[1.3vw] xl:text-[16px] bg-[#F5F6F8]">
       <div className="min-h-[calc(100vh-3.2rem)] p-4 px-[1.6em] md:px-[3em] lg:px-[3em] pt-[3.2em] md:pt-[5em] lg:py-[3em] xl:px-[9em] bg-[#F5F6F8] flex flex-col lg:flex-row lg:items-center gap-[3.5em] md:gap-[4em] xl:gap-[9em]">
         <div className="w-full lg:w-[45%] flex flex-col gap-[1.5em] lg:gap-[2em] xl:gap-[2.3em]">
           <h1 className="text-[3.2em] lg:text-[3.7em] xl:text-[4.3em] leading-[1.2em]">

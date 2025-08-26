@@ -58,8 +58,7 @@ const UserProfile = () => {
   }, [users, reset, isEdit]);
 
   return (
-    <section className="text-[3.7vw] bg-[#F5F6F8] sm:text-[2.6vw] md:text-[2vw] lg:text-[1.4vw] xl:text-[16px]">
-      <Nav />
+    <section className="text-[clamp(11px,3.7vw,15px)] sm:text-[clamp(13px,2.6vw,16px)] md:text-[clamp(13px,2vw,17px)] lg:text-[1.4vw] xl:text-[16px] bg-[#F5F6F8]">
       <div className="w-full h-[3.2em] flex justify-between items-center px-[1.6em] md:px-[3em] lg:px-[5.5em] pt-[.5em] lg:pt-[1.4em]">
         <Link
           to={-1}

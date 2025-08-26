@@ -1,5 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import { lazy } from "react";
+import Nav from "../components/Nav";
 const Home = lazy(() => import("../pages/Home"));
 const Auth = lazy(() => import("../pages/Auth"));
 const Cart = lazy(() => import("../pages/Cart"));
@@ -15,6 +16,7 @@ const UnauthWrapper = lazy(() => import("./UnauthWrapper"));
 const MainRoute = () => {
   return (
     <>
+      <Nav />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/cart" element={<Cart />} />

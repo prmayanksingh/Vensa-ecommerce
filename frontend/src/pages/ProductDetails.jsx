@@ -60,20 +60,19 @@ const ProductDetails = () => {
 
   return (
     <section>
-      <Nav />
       <div className="flex py-[1.4em] px-[1.5em] md:px-[1.5em]">
-        <div className="w-[10%]  flex items-center justify-center">
+        <div className="w-[10%] flex items-center justify-center">
           <Link
             to={-1}
-            className="text-[1.1em] px-[1.2em] py-[.25em] rounded text-white bg-gray-500"
+            className="text-[1em] px-[1.2em] py-[.25em] rounded text-white bg-gray-500"
           >
             <FaArrowLeftLong />
           </Link>
         </div>
       </div>
       {products ? (
-        <div className="lg:min-h-[calc(100vh-3.2rem)] flex flex-col lg:flex-row lg:justify-center p-[2em] sm:p-[3em] md:p-[3.5em] lg:px-[6em] lg:p-[2.2em] pt-[2.6em] sm:pt-[2.5em] md:pt-[2.8em] lg:pt-[.8em] text-[3.7vw] sm:text-[2.2vw] md:text-[1.9vw] lg:text-[16px] gap-[0.7em] lg:gap-[4em]">
-          <div className="rounded sm:h-[40em] md:h-[46em] lg:h-[38vw] lg:w-[40%]">
+        <div className="lg:min-h-[calc(100vh-3.2rem)] flex flex-col lg:flex-row lg:justify-center p-[2em] sm:p-[3em] md:p-[3.5em] lg:px-[6em] lg:p-[2.2em] pt-[1em] sm:pt-[1.5em] md:pt-[1.5em] lg:pt-[.8em] text-[clamp(10px,3.7vw,15px] sm:text-[clamp(10px,2.2vw,16px)] md:text-[clamp(10px,1.9vw,17px)] lg:text-[16px] gap-[0.7em] lg:gap-[4em]">
+          <div className="w-full h-[20em] rounded sm:h-[36em] md:h-[40em] lg:h-[38vw] lg:w-[40%]">
             <img
               className="h-full w-full object-cover object-center rounded"
               src={product?.image}
@@ -108,17 +107,18 @@ const ProductDetails = () => {
                 onClick={incrementHandler}
               />
             </div>
+            {/* w-[21.9em] */}
             {users?.isAdmin ? (
               <div className="flex flex-col sm:flex-row items-center gap-[1.1em] mt-[.4em]">
                 <Link
                   to={`/admin/update-product/${product?.id}`}
-                  className="h-[3em] w-[21.9em] flex items-center justify-center rounded outline active:scale-[98%] hover:bg-gray-100"
+                  className="h-[3em] w-full flex items-center justify-center rounded outline active:scale-[98%] hover:bg-gray-100"
                 >
                   Update
                 </Link>
                 <button
                   onClick={deleteHandler}
-                  className="h-[3em] w-[21.9em] rounded bg-black text-white active:scale-[98%] hover:bg-gray-700"
+                  className="h-[3em] w-full rounded bg-black text-white active:scale-[98%] hover:bg-gray-700"
                 >
                   Delete
                 </button>
@@ -127,13 +127,13 @@ const ProductDetails = () => {
               <div className="flex flex-col sm:flex-row items-center gap-[1.1em] mt-[.4em]">
                 <button
                   onClick={() => cartHandler(product.id)}
-                  className="h-[3em] w-[21.9em] flex items-center justify-center rounded outline active:scale-[98%] hover:bg-gray-100"
+                  className="h-[3em] w-full flex items-center justify-center rounded outline active:scale-[98%] hover:bg-gray-100"
                 >
                   Add to cart
                 </button>
                 <button
                   onClick={buynowHandler}
-                  className="h-[3em] w-[21.9em] rounded bg-black text-white active:scale-[98%] hover:bg-gray-700"
+                  className="h-[3em] w-full rounded bg-black text-white active:scale-[98%] hover:bg-gray-700"
                 >
                   Buy Now
                 </button>

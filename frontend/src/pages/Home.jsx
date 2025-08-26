@@ -11,7 +11,6 @@ import Footer from "../components/Footer";
 const Home = () => {
   return (
     <section>
-      <Nav />
       <Hero />
       <MarqueeEffect />
       <IntroSection />
