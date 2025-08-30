@@ -7,10 +7,10 @@ import FAQSection from "../components/FAQSection";
 import PromoSection from "../components/PromoSection";
 import Footer from "../components/Footer";
 
-const Home = () => {
+const Home = ({ startHero }) => {
   return (
     <section>
-      <Hero />
+      <Hero startHero={startHero} />
       <MarqueeEffect />
       <IntroSection />
       <div className="w-full h-[.4em] bg-gray-100"></div>
