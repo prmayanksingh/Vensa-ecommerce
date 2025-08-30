@@ -3,15 +3,13 @@ import { IoMdLogIn } from "react-icons/io";
 import { BsBoxSeam } from "react-icons/bs";
 import { HiOutlineBars3 } from "react-icons/hi2";
 import { RxCross2 } from "react-icons/rx";
-import { Link, NavLink, useNavigate } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { Link, NavLink } from "react-router-dom";
+import { useSelector } from "react-redux";
 import { LuShoppingCart } from "react-icons/lu";
 import { FaPlus } from "react-icons/fa";
 import { useState } from "react";
 
 const Nav = () => {
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
   const { users } = useSelector((state) => state.userReducer);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -21,7 +19,7 @@ const Nav = () => {
 
   return (
     <nav className="h-[3.2rem] bg-gray-200 px-5 sm:px-7 xl:px-17 flex items-center justify-between text-[clamp(10px,4vw,16px)] sm:text-[17px]">
-      <Link to={"/"} className="font-[monument] text-[1.5em] font-bold">
+      <Link to={"/"} className="font-['Monument'] text-[1.5em] font-bold">
         vensa.co
       </Link>
 

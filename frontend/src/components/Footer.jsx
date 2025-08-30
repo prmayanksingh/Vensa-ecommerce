@@ -23,7 +23,7 @@ const Footer = () => {
         </div>
         <div className="lg:w-[47%] w-full flex justify-between">
           <div className="w-[30%] lg:w-[33%] flex flex-col gap-[.7em]">
-            <h2 className="text-[1em] lg:text-[1em] font-bold font-[gilroy]">
+            <h2 className="text-[1em] lg:text-[1em] font-bold font-['Gilroy']">
               Categories
             </h2>
             <div className="text-[1em] lg:text-[.9em] flex flex-col gap-[.2em] lg:gap-[.3em] text-gray-600">
@@ -35,7 +35,7 @@ const Footer = () => {
             </div>
           </div>
           <div className="w-[33%] lg:w-[33%] flex flex-col gap-[.7em] ">
-            <h2 className="text-[1em] lg:text-[1em] font-bold font-[gilroy]">
+            <h2 className="text-[1em] lg:text-[1em] font-bold font-['Gilroy']">
               Customer Care
             </h2>
             <div className="text-[1em] lg:text-[.9em] flex flex-col gap-[.2em] lg:gap-[.3em] text-gray-600">
@@ -46,7 +46,7 @@ const Footer = () => {
             </div>
           </div>
           <div className="w-[27%] lg:w-[30%] flex flex-col gap-[.7em]">
-            <h2 className="text-[1em] lg:text-[1em] font-bold font-[gilroy]">
+            <h2 className="text-[1em] lg:text-[1em] font-bold font-['Gilroy']">
               Company
             </h2>
             <div className="text-[1em] lg:text-[.9em] flex flex-col gap-[.2em] lg:gap-[.3em] text-gray-600">
@@ -57,9 +57,11 @@ const Footer = () => {
           </div>
         </div>
       </div>
+
       <div className="h-[.1em] w-full bg-gray-100"></div>
+
       <div className="w-full flex flex-col lg:flex-row lg:justify-between gap-[2em] sm:gap-[2.3em] lg:gap-[0]">
-        <div className="w-full lg:w-[50%] flex flex-col gap-[.85em]">
+        <div className="w-full lg:w-[50%] xl:w-[53%] flex flex-col gap-[.85em]">
           <h2 className="text-[1em] font-bold">Vensa.co - All Rights Reserved</h2>
           <h2 className="text-[1em] text-gray-600">The Seen Mastercard is issued by coastal community Bank,Member FDIC,under a license from Mastercard international incorporated.</h2>
           <div className="flex flex-col gap-[.3em]">
@@ -70,7 +72,7 @@ const Footer = () => {
           </div>
           <h2 className="text-[1em] text-gray-600">NMLS #2477008. Visit the NMLS Consumer Access Database here</h2>
         </div>
-        <div className="w-full lg:w-[50%] text-[3.7em] sm:text-[.9em] xl:text-[.8em] flex flex-col items-end justify-center gap-[.25em] sm:gap-[1.1em] lg:gap-[1.4em] xl:gap-[1.7em]">
+        <div className="w-full lg:w-[50%] xl:w-[40%] t`ext-[3.7em] sm:text-[.9em] xl:text-[.8em] flex flex-col items-end justify-center gap-[.25em] sm:gap-[1.1em] lg:gap-[1.4em] xl:gap-[1.7em]">
           <div className="group flex items-center gap-[.2em] sm:text-[4.3em] xl:text-[5.3em]">
             <div className="w-[1.7em] h-[1.7em] text-[.5em] bg-gray-300 flex items-center justify-center rounded-lg group-hover:text-white group-hover:bg-orange-600">
               <FaLinkedinIn />
@@ -97,7 +99,9 @@ const Footer = () => {
           </div>
         </div>
       </div>
+
       <div className="w-full h-[.1em] bg-gray-100"></div>
+
       <div className="relative w-full h-[13vw] overflow-hidden flex justify-center items-center">
         <h1 className="text-[14vw] font-[monument] font-bold text-center text-[#E5E5E5]">
           Vensa.co

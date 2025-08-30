@@ -1,5 +1,5 @@
-import { Route, Routes } from "react-router-dom";
-import { lazy } from "react";
+import { Route, Routes, useLocation, useNavigate } from "react-router-dom";
+import { lazy, useEffect } from "react";
 import Nav from "../components/Nav";
 const Home = lazy(() => import("../pages/Home"));
 const Auth = lazy(() => import("../pages/Auth"));
@@ -14,6 +14,18 @@ const AuthWrapper = lazy(() => import("./AuthWrapper"));
 const UnauthWrapper = lazy(() => import("./UnauthWrapper"));
 
 const MainRoute = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const nav = performance.getEntriesByType("navigation")[0];
+    const isReload = nav && nav.type === "reload";
+
+    if (isReload && location.pathname !== "/") {
+      navigate("/", { replace: true });
+    }
+  },[]);
+
   return (
     <>
       <Nav />

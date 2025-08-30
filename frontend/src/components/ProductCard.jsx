@@ -1,5 +1,6 @@
 import { MdCurrencyRupee } from "react-icons/md";
 import { Link } from "react-router-dom";
+import { pexels } from "../utils/img";
 
 const ProductCard = ({ product }) => {
   return (
@@ -10,8 +11,10 @@ const ProductCard = ({ product }) => {
       <div className="w-full h-[75%]">
         <img
           className="h-full w-full object-cover rounded object-center"
-          src={product.image}
-          alt=""
+          src={pexels(product.image)}
+          alt={product.title}
+          loading="lazy"
+          decoding="async"
         />
       </div>
       <div className="h-[25%] py-5 px-3 font-semibold text-center flex flex-col gap-[0.2em]">

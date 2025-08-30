@@ -1,4 +1,3 @@
-import Nav from "../components/Nav";
 import { FiMinus } from "react-icons/fi";
 import { FiPlus } from "react-icons/fi";
 import { MdCurrencyRupee } from "react-icons/md";
@@ -76,7 +75,12 @@ const ProductDetails = () => {
             <img
               className="h-full w-full object-cover object-center rounded"
               src={product?.image}
-              alt=""
+              alt={product?.title || "Product image"}
+              width="640"
+              height="640"
+              loading="eager"
+              fetchPriority="high"
+              decoding="async"
             />
           </div>
           <div className="lg:w-[50%] p-2 flex flex-col gap-[.4em] lg:gap-[.4em]">

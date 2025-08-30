@@ -12,7 +12,7 @@ const FlipLink = ({ children, href }) => {
       whileHover="hovered"
       target="_blank"
       href={href}
-      className="w-fit relative block overflow-hidden whitespace-nowrap text-[1em] font-[gilroy] font-bold uppercase dark:text-white/90"
+      className="w-fit relative block overflow-hidden whitespace-nowrap text-[1em] font-['Gilroy'] font-bold uppercase dark:text-white/90"
       style={{ lineHeight: .87 }}
     >
       {/* Top row (original text) */}

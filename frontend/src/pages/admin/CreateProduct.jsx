@@ -1,10 +1,8 @@
-import Nav from "../../components/Nav";
 import { nanoid } from "@reduxjs/toolkit";
 import { useForm } from "react-hook-form";
 import { asyncCreateProduct } from "../../store/actions/ProductAction";
 import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
-import { toast } from "react-toastify";
 
 const CreateProduct = () => {
   const { register, handleSubmit, reset } = useForm();

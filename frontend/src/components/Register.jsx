@@ -89,7 +89,7 @@ const Register = () => {
         </form>
         <div className="flex items-center my-6">
           <hr className="w-full text-gray-300" />
-          <span className="px-2 text-[0.9em] font-[gilroy] text-gray-500 font-semibold">
+          <span className="px-2 text-[0.9em] font-['Gilroy'] text-gray-500 font-semibold">
             Or
           </span>
           <hr className="w-full text-gray-300" />

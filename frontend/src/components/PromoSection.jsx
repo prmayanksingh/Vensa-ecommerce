@@ -8,7 +8,11 @@ const PromoSection = () => {
           <img
             className="w-full h-full object-cover object-center scale-[117%]"
             src={promotionBanner}
-            alt=""
+            alt="Vensa.co fashion promotion banner featuring model in black outfit and silver sunglasses"
+            width="1200"
+            height="800"
+            loading="lazy"
+            decoding="async"
           />
         </div>
         <div className="w-full md:w-[48%] h-[50%] md:h-full px-[1.2em] md:px-[0em] py-[2.2em] flex flex-col justify-between md:justify-center md:items-end md:gap-[4em]">
@@ -21,7 +25,7 @@ const PromoSection = () => {
               stylish accessories designed for every occasion.
             </h3>
           </div>
-          <button className="w-fit h-fit text-[1em] lg:text-[1em] px-[1em] lg:px-[1.2em] py-[.4em] lg:py-[.5em] shadow shadow-gray-400 rounded-lg ">
+          <button className="w-fit h-fit text-[1em] lg:text-[.95em] px-[1em] lg:px-[1.2em] py-[.4em] lg:py-[.5em] shadow shadow-gray-400 rounded-lg ">
             Browse Collection
           </button>
         </div>

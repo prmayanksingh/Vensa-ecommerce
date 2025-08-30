@@ -4,7 +4,6 @@ import IntroSection from "../components/IntroSection";
 import Testimonial from "../components/Testimonial";
 import CategoryShowcase from "../components/CategoryShowcase";
 import FAQSection from "../components/FAQSection";
-import Nav from "../components/Nav";
 import PromoSection from "../components/PromoSection";
 import Footer from "../components/Footer";
 

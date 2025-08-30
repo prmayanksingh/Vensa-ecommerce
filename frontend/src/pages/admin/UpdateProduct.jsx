@@ -1,10 +1,8 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate, useParams } from "react-router-dom";
-import Nav from "../../components/Nav";
 import { asyncUpdateProduct } from "../../store/actions/ProductAction";
-import { toast } from "react-toastify";
 
 const UpdateProduct = () => {
   const { id } = useParams();

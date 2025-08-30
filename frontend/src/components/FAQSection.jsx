@@ -18,7 +18,7 @@ const FAQSection = () => {
         </div>
       </div>
       <div className="flex flex-col lg:flex-row lg:justify-between gap-[1.2em] lg:gap-[0em]">
-        <div className="lg:w-[49%] flex flex-col gap-[1.2em] font-bold font-[gilroy] text-[#1F1F1F]">
+        <div className="lg:w-[49%] flex flex-col gap-[1.2em] font-bold font-['Gilroy'] text-[#1F1F1F]">
           <div className="w-full h-[3.5em] px-[1em] bg-[#F7F7F7] flex items-center justify-between rounded-lg">
             <div className="flex items-center gap-[.8em]">
               <h2 className="text-[.95em] tracking-wider text-[#ABABAB]">01</h2>
@@ -54,7 +54,7 @@ const FAQSection = () => {
             <IoIosArrowDown className="text-[1.2em] text-[#A3A3A3]" />
           </div>
         </div>
-        <div className="lg:w-[49%] flex flex-col gap-[1.2em] font-bold font-[gilroy]">
+        <div className="lg:w-[49%] flex flex-col gap-[1.2em] font-bold font-['Gilroy']">
           <div className="w-full h-[3.5em] px-[1em] bg-[#F7F7F7] flex items-center justify-between rounded-lg">
             <div className="flex items-center gap-[.8em]">
               <h2 className="text-[.95em] tracking-wider text-[#ABABAB]">05</h2>
