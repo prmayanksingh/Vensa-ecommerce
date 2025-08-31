@@ -12,6 +12,7 @@ import {
 import { Link, useNavigate } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
 import { toast } from "react-toastify";
+import { motion } from "framer-motion";
 
 const UserProfile = () => {
   const { register, handleSubmit, reset } = useForm();
@@ -57,8 +58,42 @@ const UserProfile = () => {
     }
   }, [users, reset, isEdit]);
 
+  const container = {
+    hidden: { opacity: 0, y: 10 },
+    show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+    exit: { opacity: 0, y: 10, transition: { duration: 0.3, ease: "easeIn" } },
+  };
+
+  const formAnime = {
+    hidden: { opacity: 0, y: 20 },
+    show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+    exit: { opacity: 0, y: 20, transition: { duration: 0.3, ease: "easeIn" } },
+  };
+
+  const textGroup = {
+    hidden: { opacity: 0, y: 10 },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: { staggerChildren: 0.1, delayChildren: 0.3 },
+    },
+    exit: { opacity: 1, y: 0 },
+  };
+
+  const textItem = {
+    hidden: { opacity: 0, y: 20 },
+    show: { opacity: 1, y: 0, transition: { duration: 0.4, ease: "easeOut" } },
+    exit: { opacity: 0, y: 20, transition: { duration: 0.4, ease: "easeIn" } },
+  };
+
   return (
-    <section className="text-[clamp(11px,3.7vw,15px)] sm:text-[clamp(13px,2.6vw,16px)] md:text-[clamp(13px,2vw,17px)] lg:text-[1.4vw] xl:text-[16px] bg-[#F5F6F8]">
+    <motion.section
+      variants={container}
+      initial="hidden"
+      animate="show"
+      exit="exit"
+      className="text-[clamp(11px,3.7vw,15px)] sm:text-[clamp(13px,2.6vw,16px)] md:text-[clamp(13px,2vw,17px)] lg:text-[1.4vw] xl:text-[16px] bg-[#F5F6F8]"
+    >
       <div className="w-full h-[3.2em] flex justify-between items-center px-[1.6em] md:px-[3em] lg:px-[5.5em] pt-[.5em] lg:pt-[1.4em]">
         <Link
           to={-1}
@@ -75,18 +110,30 @@ const UserProfile = () => {
         </button>
       </div>
       <div className="min-h-[calc(100vh-6.9rem)] lg:h-[calc(100vh-6.9rem)] p-4 px-[1.6em] md:px-[3em] lg:px-[3em] pt-[1.9em] md:pt-[5em] lg:py-[3em] xl:px-[9em] flex flex-col lg:flex-row lg:items-center gap-[3.5em] md:gap-[4em] xl:gap-[9em]">
-        <div className="w-full lg:w-[45%] flex flex-col gap-[1.5em] lg:gap-[2em] xl:gap-[2.3em]">
-          <h1 className="text-[3em] lg:text-[3.7em] xl:text-[4.3em] leading-[1.2em]">
+        <motion.div
+          variants={textGroup}
+          className="w-full lg:w-[45%] flex flex-col gap-[1.5em] lg:gap-[2em] xl:gap-[2.3em]"
+        >
+          <motion.h1
+            variants={textItem}
+            className="text-[3em] lg:text-[3.7em] xl:text-[4.3em] leading-[1.2em]"
+          >
             <span className="font-bold">Manage</span> &{" "}
             <span className="font-bold">Update</span> <br /> your Profile
-          </h1>
-          <h3 className="text-[1em] xl:text-[1.2em] leading-[1.2em] text-gray-500">
+          </motion.h1>
+          <motion.h3
+            variants={textItem}
+            className="text-[1em] xl:text-[1.2em] leading-[1.2em] text-gray-500"
+          >
             View and edit your personal information to keep your account
             accurate and secure. Update your details anytime to enjoy a smooth
             and personalized experience.
-          </h3>
-        </div>
-        <div className=" lg:w-[45%] xl:w-[40%] bg-white p-[1.7em] md:p-[2.5em] lg:p-9 lg:pt-7 xl:p-11 xl:pt-5 xl:pb-8 rounded-3xl shadow-2xl">
+          </motion.h3>
+        </motion.div>
+        <motion.div
+          variants={formAnime}
+          className=" lg:w-[45%] xl:w-[40%] bg-white p-[1.7em] md:p-[2.5em] lg:p-9 lg:pt-7 xl:p-11 xl:pt-5 xl:pb-8 rounded-3xl shadow-2xl"
+        >
           <div className="w-full flex justify-center mb-[1em]">
             <div className="w-fit text-[2.2em] p-[.9em] bg-gray-400 rounded-full text-center">
               <HiOutlineUser className="text-gray-100" />
@@ -188,9 +235,9 @@ const UserProfile = () => {
               )}
             </div>
           </form>
-        </div>
+        </motion.div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 

@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { asyncUpdateUser } from "../store/actions/UserAction";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
+import { motion } from "framer-motion";
 
 const Cart = () => {
   const { users } = useSelector((state) => state.userReducer);
@@ -48,8 +49,35 @@ const Cart = () => {
     }
   };
 
+  const container = {
+    hidden: { opacity: 0, y: 10 },
+    show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+    exit: { opacity: 0, y: 10, transition: { duration: 0.3, ease: "easeIn" } },
+  };
+
+  const cardContainer = {
+    hidden: { opacity: 0, y: 10 },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: { staggerChildren: 0.1, delayChildren: 0.3 },
+    },
+    exit: { opacity: 0, y: 10 },
+  };
+
+  const cardItem = {
+    hidden: { opacity: 0, y: 20 },
+    show: { opacity: 1, y: 0, transition: { duration: 0.4, ease: "easeOut" } },
+    exit: { opacity: 0, y: 20, tansition: { duration: 0.4, ease: "easeIn" } },
+  };
+
   return (
-    <section>
+    <motion.section
+      variants={container}
+      initial="hidden"
+      animate="show"
+      exit="exit"
+    >
       <div className="flex py-[1.2em] px-[1.5em] md:px-[1.5em]">
         <div className="w-[10%]  flex items-center justify-center">
           <Link
@@ -67,9 +95,13 @@ const Cart = () => {
         <div className="w-[10%] "></div>
       </div>
       {users?.cart[0] != undefined ? (
-        <div className="px-[1.7em] md:px-[1.4em] py-[1.5em] mb-[1em] flex flex-col items-center gap-[2.3em] md:gap-[1.1em] text-[3.7vw] sm:text-[20px]">
+        <motion.div
+          variants={cardContainer}
+          className="px-[1.7em] md:px-[1.4em] py-[1.5em] mb-[1em] flex flex-col items-center gap-[2.3em] md:gap-[1.1em] text-[3.7vw] sm:text-[20px]"
+        >
           {users?.cart.map((elem, index) => (
-            <div
+            <motion.div
+              variants={cardItem}
               key={elem.product.id}
               className="md:w-[36.5em] lg:w-[45em] md:h-[5em] lg:h-[5.5em] md:bg-gray-200 md:px-[.9em] lg:px-[1.1em] md:py-[.9em]  md:rounded-lg flex flex-col md:flex-row items-center md:justify-between gap-[.4em] md:gap-[.9em] lg:gap-[1.3em]"
             >
@@ -106,9 +138,12 @@ const Cart = () => {
                   className="active:scale-[85%]"
                 />
               </div>
-            </div>
+            </motion.div>
           ))}
-          <div className="w-full md:w-[20em] p-[1.7em] md:p-[1.2em] mt-[.7em] text-center flex flex-col items-center gap-[.1em] outline rounded-lg bg-gray-100">
+          <motion.div
+            variants={cardContainer}
+            className="w-full md:w-[20em] p-[1.7em] md:p-[1.2em] mt-[.7em] text-center flex flex-col items-center gap-[.1em] outline rounded-lg bg-gray-100"
+          >
             <h1 className="text-[1.2em] md:text-[.9em]">
               You have {users?.cart.length} items in cart.
             </h1>
@@ -125,14 +160,14 @@ const Cart = () => {
             >
               Proceed to checkout
             </button>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       ) : (
         <h1 className="text-[1.3em] text-gray-500 text-center mt-[1.5em]">
           Your Cart is empty!!🥲
         </h1>
       )}
-    </section>
+    </motion.section>
   );
 };
 

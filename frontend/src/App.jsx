@@ -9,7 +9,7 @@ const App = () => {
   const dispatch = useDispatch();
   const { users } = useSelector((state) => state.userReducer);
   const [loader, setLoader] = useState(true);
-  const [startHero, setStartHero] = useState(false);
+  const [startHero, setStartHero] = useState(true);
 
   useEffect(() => {
     !users && dispatch(asyncCurrentUser());
@@ -35,9 +35,9 @@ const App = () => {
     <div className="font-['Helvetica'] tracking-wide">
       <MainRoute startHero={startHero} />
 
-      <AnimatePresence mode="wait" onExitComplete={() => setStartHero(true)}>
+      {/* <AnimatePresence mode="wait" onExitComplete={() => setStartHero(true)}>
         {loader && <Loader key="loader" onDone={() => setLoader(false)} />}
-      </AnimatePresence>
+      </AnimatePresence> */}
     </div>
   );
 };

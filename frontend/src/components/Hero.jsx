@@ -1,13 +1,15 @@
 import { IoIosArrowForward } from "react-icons/io";
 import hero from "../assets/hero.webp";
-import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
+import { color, motion, scale } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 
 const Hero = ({ startHero }) => {
+  const navigate = useNavigate();
+
   const container = {
-    hidden: {},
+    hidden: { opacity: 1, y: 0 },
     show: {
-      transition: { staggerChildren: 0.4, delayChildren: .3 },
+      transition: { staggerChildren: 0.4, delayChildren: 0.1 },
     },
     exit: {
       transition: { staggerChildren: 0.1, when: "afterChildren" },
@@ -19,7 +21,7 @@ const Hero = ({ startHero }) => {
     show: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.5, ease: "easeOut" },
+      transition: { duration: 0.7, ease: "easeOut" },
     },
     exit: {
       opacity: 0,
@@ -87,16 +89,19 @@ const Hero = ({ startHero }) => {
           variants={textItem}
           className="flex mt-[1.8em] sm:mt-[2.2em] xl:mt-[2.6em] gap-6"
         >
-          <Link
-            to={"/products"}
+          <motion.button
+            layout
+            whileTap={{ scale: 0.95 }}
+            whileHover={{ backgroundColor: "#6A7282", color: "#fff" }}
+            onClick={() => navigate("/products")}
             className="px-[1.2em] py-[.4em] bg-white text-black text-[1.1em] xl:text-[clamp(14px,1.2vw,20px)] font-semibold rounded-xl"
           >
             Shop Now
-          </Link>
+          </motion.button>
           <motion.button
-          whileHover={{bgackground: "black"}}
-          whileTap={{scale:1.2}}
-           className="text-[1.1em] xl:text-[clamp(14px,1.2vw,20px)] flex gap-1 items-center">
+            whileTap={{ scale: 0.95 }}
+            className="text-[1.1em] xl:text-[clamp(14px,1.2vw,20px)] flex gap-1 items-center"
+          >
             Learn More <IoIosArrowForward className="text-[1.2em]" />{" "}
           </motion.button>
         </motion.div>

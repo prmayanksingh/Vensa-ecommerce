@@ -8,6 +8,7 @@ import { asyncDeleteProduct } from "../store/actions/ProductAction";
 import { toast } from "react-toastify";
 import { asyncUpdateUser } from "../store/actions/UserAction";
 import { FaArrowLeftLong } from "react-icons/fa6";
+import { motion } from "framer-motion";
 
 const ProductDetails = () => {
   const [quantity, setquantity] = useState(1);
@@ -47,7 +48,7 @@ const ProductDetails = () => {
     if (confirm("Are you sure want to delete the product?!")) {
       dispatch(asyncDeleteProduct(id));
       navigate("/products");
-      toast.success("Product deleted!!")
+      toast.success("Product deleted!!");
     }
   };
 
@@ -58,7 +59,19 @@ const ProductDetails = () => {
   };
 
   return (
-    <section>
+    <motion.section
+      initial={{ opacity: 0, y: 10 }}
+      animate={{
+        opacity: 1,
+        y: 0,
+        transition: { duration: 0.6, ease: "easeOut" },
+      }}
+      exit={{
+        opacity: 0,
+        y: 10,
+        transition: { duration: 0.3, ease: "easeIn" },
+      }}
+    >
       <div className="flex py-[1.4em] px-[1.5em] md:px-[1.5em]">
         <div className="w-[10%] flex items-center justify-center">
           <Link
@@ -157,7 +170,7 @@ const ProductDetails = () => {
       ) : (
         <h1 className="text-center text-[1.5em] my-[2em]">Loading...</h1>
       )}
-    </section>
+    </motion.section>
   );
 };
 

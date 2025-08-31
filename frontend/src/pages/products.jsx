@@ -1,16 +1,28 @@
-import Nav from "../components/Nav";
 import { FaArrowLeftLong } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { lazy, Suspense } from "react";
 import useInfiniteProducts from "../utils/useInfiniteProducts";
+import { motion } from "framer-motion";
 const ProductCard = lazy(() => import("../components/ProductCard"));
 
 const Products = () => {
   const { hasMore, products, fetchMoreProducts } = useInfiniteProducts();
 
   return (
-    <section>
+    <motion.section
+      initial={{ opacity: 0, y: 10 }}
+      animate={{
+        opacity: 1,
+        y: 0,
+        transition: { duration: 0.6, ease: "easeOut" },
+      }}
+      exit={{
+        opacity: 0,
+        y: 10,
+        transition: { duration: 0.3, ease: "easeIn" },
+      }}
+    >
       <div className="flex py-[1.2em] px-[1.5em] md:px-[1.5em]">
         <div className="w-[10%]  flex items-center justify-center">
           <Link
@@ -51,7 +63,7 @@ const Products = () => {
           ))}
         </div>
       </InfiniteScroll>
-    </section>
+    </motion.section>
   );
 };
 

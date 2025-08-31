@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { asyncUpdateProduct } from "../../store/actions/ProductAction";
+import { motion } from "framer-motion";
 
 const UpdateProduct = () => {
   const { id } = useParams();
@@ -30,20 +31,66 @@ const UpdateProduct = () => {
     }
   }, [product, reset]);
 
+  const container = {
+    hidden: { opacity: 0, y: 10 },
+    show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+    exit: { opacity: 0, y: 10, transition: { duration: 0.3, ease: "easeIn" } },
+  };
+
+  const formAnime = {
+    hidden: { opacity: 0, y: 20 },
+    show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+    exit: { opacity: 0, y: 20, transition: { duration: 0.3, ease: "easeIn" } },
+  };
+
+  const textGroup = {
+    hidden: { opacity: 0, y: 10 },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: { staggerChildren: 0.1, delayChildren: 0.3 },
+    },
+    exit: { opacity: 1, y: 0 },
+  };
+
+  const textItem = {
+    hidden: { opacity: 0, y: 20 },
+    show: { opacity: 1, y: 0, transition: { duration: 0.4, ease: "easeOut" } },
+    exit: { opacity: 0, y: 20, transition: { duration: 0.4, ease: "easeIn" } },
+  };
+
   return (
-    <section className="text-[3.7vw] sm:text-[2.6vw] md:text-[2vw] lg:text-[1.4vw] xl:text-[16px]">
+    <motion.section
+      variants={container}
+      initial="hidden"
+      animate="show"
+      exit="exit"
+      className="text-[3.7vw] sm:text-[2.6vw] md:text-[2vw] lg:text-[1.4vw] xl:text-[16px]"
+    >
       <div className="min-h-[calc(100vh-3.2rem)] p-4 px-[1.6em] md:px-[3em] lg:px-[3em] pt-[3.2em] md:pt-[5em] lg:py-[3em] xl:px-[9em] bg-[#F5F6F8] flex flex-col lg:flex-row lg:items-center gap-[3.5em] md:gap-[4em] xl:gap-[9em]">
-        <div className="w-full lg:w-[45%] flex flex-col gap-[1.5em] lg:gap-[2em] xl:gap-[2.3em]">
-          <h1 className="text-[3.2em] lg:text-[3.7em] xl:text-[4.3em] leading-[1.2em]">
+        <motion.div
+          variants={textGroup}
+          className="w-full lg:w-[45%] flex flex-col gap-[1.5em] lg:gap-[2em] xl:gap-[2.3em]"
+        >
+          <motion.h1
+            variants={textItem}
+            className="text-[3.2em] lg:text-[3.7em] xl:text-[4.3em] leading-[1.2em]"
+          >
             <span className="font-bold">Update</span> &{" "}
             <span className="font-bold">Refine</span> <br /> Your Product
-          </h1>
-          <h3 className="text-[1em] xl:text-[1.2em] leading-[1.2em] text-gray-500">
+          </motion.h1>
+          <motion.h3
+            variants={textItem}
+            className="text-[1em] xl:text-[1.2em] leading-[1.2em] text-gray-500"
+          >
             Edit your product details to keep them up-to-date. Ensure your
             catalog always reflects accurate and current information.
-          </h3>
-        </div>
-        <div className="lg:w-[45%] xl:w-[40%] bg-white p-[1.7em] md:p-[2.5em]  lg:p-9 xl:p-11 rounded-3xl shadow-2xl">
+          </motion.h3>
+        </motion.div>
+        <motion.div
+          variants={formAnime}
+          className="lg:w-[45%] xl:w-[40%] bg-white p-[1.7em] md:p-[2.5em]  lg:p-9 xl:p-11 rounded-3xl shadow-2xl"
+        >
           <form
             onSubmit={handleSubmit(submiteHandler)}
             className="flex flex-col gap-[1.3em] md:gap-[1.5em] lg:gap-[1.5em] xl:gap-[2em]"
@@ -157,9 +204,9 @@ const UpdateProduct = () => {
               </button>
             </div>
           </form>
-        </div>
+        </motion.div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 

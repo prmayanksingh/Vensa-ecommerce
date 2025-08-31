@@ -21,7 +21,7 @@ const ProductCard = ({ product }) => {
         <h1 className=" text-[1.1em] text-gray-600">
           {product.name.slice(0, 30)}...
         </h1>
-        <h2 className="text-[0.8em] text-gray-500">{product.category}</h2>
+        
         <h2 className="text-[1em] flex items-center self-center mt-[0.2em] -translate-x-[10%]">
           <MdCurrencyRupee className="text-[1.1em]" />{" "}
           <span>{product.price}</span>
@@ -32,3 +32,4 @@ const ProductCard = ({ product }) => {
 };
 
 export default ProductCard;
+0
