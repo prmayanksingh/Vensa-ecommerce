@@ -2,13 +2,15 @@ import { MdVerified } from "react-icons/md";
 import { MdDashboard } from "react-icons/md";
 import { FaImages } from "react-icons/fa6";
 import introImage from "../assets/introImage.webp";
+import { motion } from "framer-motion";
 
 const IntroSection = () => {
   return (
     <section className="pb-[1em] lg:pb-[1.5em] sm:px-[2em] md:px-[2.5em] lg:px-[1em] xl:px-[2.5em] lg:py-[1em] text-[clamp(13px,3.75vw,16px)] sm:text-[2.4vw] md:text-[clamp(10px,2vw,17px)] lg:text-[17px] xl:text-[clamp(14px,1.1vw,18px)]">
       <div className="p-[1.6em] flex flex-col lg:flex-row gap-[1.5em] xl:gap-[1.8em]">
-        <div className="lg:w-[50%]">
-          <img
+        <div className="lg:w-[50%] overflow-hidden rounded-xl">
+          <motion.img
+            whileHover={{ scale: 1.05 }}
             className="h-full w-full object-cover rounded-xl"
             src={introImage}
             alt="Model showcasing Vensa.co casual fashion collection"
@@ -33,54 +35,70 @@ const IntroSection = () => {
               with trusted, timeless pieces.
             </h3>
           </div>
-          <button className="w-fit px-[1.2em] py-[.4em] text-[1em] sm:text-[.9em] shadow shadow-gray-400 rounded-lg bg-white">
+          <motion.button
+            whileTap={{ scale: 0.95 }}
+            whileHover={{ backgroundColor: "#6A7282", color: "#fff" }}
+            className="w-fit px-[1.2em] py-[.4em] text-[1em] sm:text-[.9em] shadow shadow-gray-400 rounded-lg bg-white"
+          >
             Explore the collection
-          </button>
+          </motion.button>
         </div>
       </div>
       <div className="px-[1.6em] py-[1em] xl:py-[1.2em] flex flex-col lg:flex-row items-center justify-center gap-[1em]">
-        <div className="p-[1.5em] xl:p-[3em] rounded-4xl flex flex-col items-center gap-[1.2em]">
-          <MdVerified className="text-[1.7em]" />
+        <motion.div
+          whileHover={{ backgroundColor: "#6A7282" }}
+          transition={{ duration: 0.3, ease: "easeIn" }}
+          className="group p-[1.5em] xl:p-[2em] rounded-4xl flex flex-col items-center gap-[1.2em]"
+        >
+          <MdVerified className="text-[1.7em] transition-colors duration-200 group-hover:text-white" />
           <div className="text-center flex flex-col gap-[.7em]">
-            <h2 className="text-[1em] font-['Gilroy'] font-semibold">
+            <h2 className="text-[1em] font-['Gilroy'] font-semibold  transition-colors duration-200 group-hover:text-white">
               Seamless Shopping Experience
             </h2>
-            <h2 className="text-[1em] font-['Gilroy'] leading-[1.3em] font-semibold text-gray-500">
+            <h2 className="text-[1em] font-['Gilroy'] leading-[1.3em] font-semibold text-gray-500  transition-colors duration-200 group-hover:text-white">
               Fast, secure, and easy checkout for a smooth buying process, no
               matter what you shop for.
             </h2>
           </div>
-        </div>
+        </motion.div>
 
         <div className="h-[.2rem] lg:h-[5rem] w-[40%] sm:w-[25%] lg:w-[.4rem] text-center bg-gray-200"></div>
 
-        <div className="p-[1.5em] xl:p-[2em] rounded-4xl flex flex-col items-center gap-[1.2em]">
-          <MdDashboard className="text-[1.7em]" />
+        <motion.div
+          whileHover={{ backgroundColor: "#6A7282" }}
+          transition={{ duration: 0.3, ease: "easeOut" }}
+          className="group p-[1.5em] xl:p-[2em] rounded-4xl flex flex-col items-center gap-[1.2em]"
+        >
+          <MdDashboard className="text-[1.7em] transition-colors duration-200 group-hover:text-white" />
           <div className="text-center flex flex-col gap-[.7em]">
-            <h2 className="text-[1em] font-['Gilroy'] font-semibold">
+            <h2 className="text-[1em] font-['Gilroy'] font-semibold transition-colors duration-200 group-hover:text-white">
               Wide Range of Quality Products
             </h2>
-            <h2 className="text-[1em] font-['Gilroy'] leading-[1.3em] font-semibold text-gray-500">
+            <h2 className="text-[1em] font-['Gilroy'] leading-[1.3em] font-semibold text-gray-500 transition-colors duration-200 group-hover:text-white">
               From trendy clothing to everyday essentials, explore a diverse
               collection curated for style and durability.
             </h2>
           </div>
-        </div>
+        </motion.div>
 
         <div className="h-[.2rem] lg:h-[5rem] w-[40%] sm:w-[25%] lg:w-[.4rem] text-center bg-gray-200"></div>
 
-        <div className="p-[1.5em] xl:p-[2em] rounded-4xl flex flex-col items-center gap-[1.2em]">
-          <FaImages className="text-[1.7em]" />
+        <motion.div
+          whileHover={{ backgroundColor: "#6A7282" }}
+          transition={{ duration: 0.3, ease: "easeOut" }}
+          className="group p-[1.5em] xl:p-[2em] rounded-4xl flex flex-col items-center gap-[1.2em]"
+        >
+          <FaImages className="text-[1.7em] transition-colors duration-200 group-hover:text-white" />
           <div className="text-center flex flex-col gap-[.7em]">
-            <h2 className="text-[1em] font-['Gilroy'] font-semibold">
+            <h2 className="text-[1em] font-['Gilroy'] font-semibold transition-colors duration-200 group-hover:text-white">
               Clear & Detailed Product Images
             </h2>
-            <h2 className="text-[1em] font-['Gilroy'] leading-[1.3em] font-semibold text-gray-500">
+            <h2 className="text-[1em] font-['Gilroy'] leading-[1.3em] font-semibold text-gray-500 transition-colors duration-200 group-hover:text-white">
               High-resolution images that show exactly what you’re getting, so
               you can shop confidently.
             </h2>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

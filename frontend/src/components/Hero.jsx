@@ -90,7 +90,6 @@ const Hero = ({ startHero }) => {
           className="flex mt-[1.8em] sm:mt-[2.2em] xl:mt-[2.6em] gap-6"
         >
           <motion.button
-            layout
             whileTap={{ scale: 0.95 }}
             whileHover={{ backgroundColor: "#6A7282", color: "#fff" }}
             onClick={() => navigate("/products")}

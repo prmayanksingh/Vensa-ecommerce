@@ -13,7 +13,7 @@ const CategoryShowcase = () => {
     "https://images.pexels.com/photos/16485635/pexels-photo-16485635.jpeg";
 
   return (
-    <section className="bg-[#F7F7F7] py-[.5em] flex flex-nowrap gap-[.5em] overflow-x-auto lg:overflow-x-hidden scroll-smooth text-[clamp(10px,3.8vw,16px)] sm:text-[2.7vw] md:text-[2vw] lg:text-[1.5vw] xl:text-[clamp(14px,1.2vw,24px)]">
+    <section className="`bg-[#F7F7F7] py-[.5em] flex flex-nowrap gap-[.5em] overflow-x-auto lg:overflow-x-hidden scroll-smooth text-[clamp(10px,3.8vw,16px)] sm:text-[2.7vw] md:text-[2vw] lg:text-[1.5vw] xl:text-[clamp(14px,1.2vw,24px)]">
       <div className="relative h-[35em] lg:h-[40em] xl:h-[38em] w-[24em] lg:w-[29em] overflow-hidden shrink-0">
         <img
           className="h-full w-full object-cover object-center scale-[120%]"
