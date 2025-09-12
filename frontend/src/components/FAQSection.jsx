@@ -1,6 +1,61 @@
+import { animate, AnimatePresence, motion } from "framer-motion";
+import { useState } from "react";
 import { IoIosArrowDown } from "react-icons/io";
+import { IoIosArrowUp } from "react-icons/io";
+
+const faq1 = [
+  {
+    num: "01",
+    q: "What size should I order for clothing?",
+    a: "Check our size chart and compare measurements. If in between, size up for relaxed or down for snug.",
+  },
+  {
+    num: "02",
+    q: "How can I track my order status?",
+    a: "We send you a tracking link via email once shipped. You can also check in My Account → Orders.",
+  },
+  {
+    num: "03",
+    q: "Do you offer international shipping options?",
+    a: "Yes, we ship to selected countries. Costs and timelines show at checkout.",
+  },
+  {
+    num: "04",
+    q: "What is your return and exchange policy?",
+    a: "Returns accepted within 15–30 days on unworn items with tags. Final Sale items are non-returnable.",
+  },
+];
+
+const faq2 = [
+  {
+    num: "05",
+    q: "How can I cancel my order?",
+    a: "Contact us immediately. We can cancel if it hasn’t shipped yet (usually within 1 hour). If shipped, you can return after delivery.",
+  },
+  {
+    num: "06",
+    q: "Are the products on sale final sale?",
+    a: "Items marked “Final Sale” cannot be returned or exchanged. Other discounted items follow our standard return window unless noted.",
+  },
+  {
+    num: "07",
+    q: "Do you offer gift cards for purchases?",
+    a: "Yes, digital e-gift cards via email, various amounts. No expiry. Non-refundable. Usable with most promotions unless stated.",
+  },
+  {
+    num: "08",
+    q: "How do I care for my garments?",
+    a: "Follow the care label. Generally: machine wash cold, gentle cycle, similar colors; no bleach; tumble dry low/air-dry; cool iron. Hand-wash delicates.",
+  },
+];
 
 const FAQSection = () => {
+  const [openFaq, setOpenFaq] = useState("00");
+
+  const toggle = (num) => {
+    setOpenFaq(openFaq === num ? null : num);
+  };
+
   return (
     <section className="px-[1.6em] sm:px-[3em] md:px-[3.6em] lg:px-[2.6em] xl:px-[clamp(60px,5vw,100px)] py-[4em] xl:py-[6em] flex flex-col gap-[3em] text-[clamp(10px,3.7vw,15px)] sm:text-[clamp(14px,2.5vw,16px)] md:text-[clamp(15px,2vw,17px)] lg:text-[clamp(10px,1.5vw,17px)] xl:text-[clamp(14px,1.2vw,19px)]">
       <div className="flex flex-col gap-[.4em]">
@@ -19,74 +74,120 @@ const FAQSection = () => {
       </div>
       <div className="flex flex-col lg:flex-row lg:justify-between gap-[1.2em] lg:gap-[0em]">
         <div className="lg:w-[49%] flex flex-col gap-[1.2em] font-bold font-['Gilroy'] text-[#1F1F1F]">
-          <div className="w-full h-[3.5em] px-[1em] bg-[#F7F7F7] flex items-center justify-between rounded-lg">
-            <div className="flex items-center gap-[.8em]">
-              <h2 className="text-[.95em] tracking-wider text-[#ABABAB]">01</h2>
-              <h2 className="text-[.95em]">
-                What size should I order for clothing?
-              </h2>
+          {faq1.map((elem) => (
+            <div
+              onClick={() => toggle(elem.num)}
+              className="h-fit px-[1em] bg-[#F7F7F7] rounded-lg flex flex-col"
+            >
+              <div className="w-full h-[3.5em] flex items-center justify-between rounded-lg">
+                <div className="flex items-center gap-[.8em]">
+                  <h2 className="text-[.95em] tracking-wider text-[#ABABAB]">
+                    {elem.num}
+                  </h2>
+                  <h2 className="text-[.95em]">{elem.q}</h2>
+                </div>
+                {openFaq === elem.num ? (
+                  <IoIosArrowUp className="text-[1.2em] text-[#A3A3A3]" />
+                ) : (
+                  <IoIosArrowDown className="text-[1.2em] text-[#A3A3A3]" />
+                )}
+              </div>
+
+              <AnimatePresence initial={false}>
+                {openFaq === elem.num ? (
+                  <motion.div
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{
+                      height: "auto",
+                      opacity: 1,
+                      transition: { duration: 0.5, ease: "easeOut" },
+                    }}
+                    exit={{
+                      height: 0,
+                      opacity: 0,
+                      transition: { duration: 0.3, ease: "easeIn" },
+                    }}
+                    className="overflow-hidden"
+                  >
+                    <motion.div
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{ duration: 0.5 }}
+                      exit={{ opacity: 0, transition: { duration: 0.3 } }}
+                      className="flex items-center gap-[.8em] pb-[1em]"
+                    >
+                      <h2 className="opacity-0 text-[.95em] tracking-wider text-[#ABABAB]">
+                        {elem.num}
+                      </h2>
+                      <h2 className="w-[90%] text-[.95em] text-gray-600">
+                        {elem.a}
+                      </h2>
+                    </motion.div>
+                  </motion.div>
+                ) : (
+                  ""
+                )}
+              </AnimatePresence>
             </div>
-            <IoIosArrowDown className="text-[1.2em] text-[#A3A3A3]" />
-          </div>
-          <div className="w-full h-[3.5em] px-[1em] bg-[#F7F7F7] flex items-center justify-between rounded-lg">
-            <div className="flex items-center gap-[.8em]">
-              <h2 className="text-[.95em] tracking-wider text-[#ABABAB]">02</h2>
-              <h2 className="text-[.95em]">How can I track my order status?</h2>
-            </div>
-            <IoIosArrowDown className="text-[1.2em] text-[#A3A3A3]" />
-          </div>
-          <div className="w-full h-[3.5em] px-[1em] bg-[#F7F7F7] flex items-center justify-between rounded-lg">
-            <div className="flex items-center gap-[.8em]">
-              <h2 className="text-[.95em] tracking-wider text-[#ABABAB]">03</h2>
-              <h2 className="text-[.95em]">
-                Do you offer international shipping options?
-              </h2>
-            </div>
-            <IoIosArrowDown className="text-[1.2em] text-[#A3A3A3]" />
-          </div>
-          <div className="w-full h-[3.5em] px-[1em] bg-[#F7F7F7] flex items-center justify-between rounded-lg">
-            <div className="flex items-center gap-[.8em]">
-              <h2 className="text-[.95em] tracking-wider text-[#ABABAB]">04</h2>
-              <h2 className="text-[.95em]">
-                What is your return and exchange policy?
-              </h2>
-            </div>
-            <IoIosArrowDown className="text-[1.2em] text-[#A3A3A3]" />
-          </div>
+          ))}
         </div>
         <div className="lg:w-[49%] flex flex-col gap-[1.2em] font-bold font-['Gilroy']">
-          <div className="w-full h-[3.5em] px-[1em] bg-[#F7F7F7] flex items-center justify-between rounded-lg">
-            <div className="flex items-center gap-[.8em]">
-              <h2 className="text-[.95em] tracking-wider text-[#ABABAB]">05</h2>
-              <h2 className="text-[.95em]">How can I cancel my order?</h2>
+          {faq2.map((elem) => (
+            <div
+              onClick={() => toggle(elem.num)}
+              className="h-fit px-[1em] bg-[#F7F7F7] rounded-lg flex flex-col"
+            >
+              <div className="w-full h-[3.5em] flex items-center justify-between rounded-lg">
+                <div className="flex items-center gap-[.8em]">
+                  <h2 className="text-[.95em] tracking-wider text-[#ABABAB]">
+                    {elem.num}
+                  </h2>
+                  <h2 className="text-[.95em]">{elem.q}</h2>
+                </div>
+                {openFaq === elem.num ? (
+                  <IoIosArrowUp className="text-[1.2em] text-[#A3A3A3]" />
+                ) : (
+                  <IoIosArrowDown className="text-[1.2em] text-[#A3A3A3]" />
+                )}
+              </div>
+
+              <AnimatePresence initial={false}>
+                {openFaq === elem.num ? (
+                  <motion.div
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{
+                      height: "auto",
+                      opacity: 1,
+                      transition: { duration: 0.5, ease: "easeOut" },
+                    }}
+                    exit={{
+                      height: 0,
+                      opacity: 0,
+                      transition: { duration: 0.3, ease: "easeIn" },
+                    }}
+                    className="overflow-hidden"
+                  >
+                    <motion.div
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{ duration: 0.5 }}
+                      exit={{ opacity: 0, transition: { duration: 0.3 } }}
+                      className="flex items-center gap-[.8em] pb-[1em]"
+                    >
+                      <h2 className="opacity-0 text-[.95em] tracking-wider text-[#ABABAB]">
+                        {elem.num}
+                      </h2>
+                      <h2 className="w-[90%] text-[.95em] text-gray-600">
+                        {elem.a}
+                      </h2>
+                    </motion.div>
+                  </motion.div>
+                ) : (
+                  ""
+                )}
+              </AnimatePresence>
             </div>
-            <IoIosArrowDown className="text-[1.2em] text-[#A3A3A3]" />
-          </div>
-          <div className="w-full h-[3.5em] px-[1em] bg-[#F7F7F7] flex items-center justify-between rounded-lg">
-            <div className="flex items-center gap-[.8em]">
-              <h2 className="text-[.95em] tracking-wider text-[#ABABAB]">06</h2>
-              <h2 className="text-[.95em]">
-                Are the products on sale final sale?
-              </h2>
-            </div>
-            <IoIosArrowDown className="text-[1.2em] text-[#A3A3A3]" />
-          </div>
-          <div className="w-full h-[3.5em] px-[1em] bg-[#F7F7F7] flex items-center justify-between rounded-lg">
-            <div className="flex items-center gap-[.8em]">
-              <h2 className="text-[.95em] tracking-wider text-[#ABABAB]">07</h2>
-              <h2 className="text-[.95em]">
-                Do you offer gift cards for purchases?
-              </h2>
-            </div>
-            <IoIosArrowDown className="text-[1.2em] text-[#A3A3A3]" />
-          </div>
-          <div className="w-full h-[3.5em] px-[1em] bg-[#F7F7F7] flex items-center justify-between rounded-lg">
-            <div className="flex items-center gap-[.8em]">
-              <h2 className="text-[.95em] tracking-wider text-[#ABABAB]">08</h2>
-              <h2 className="text-[.95em]">How do I care for my garments?</h2>
-            </div>
-            <IoIosArrowDown className="text-[1.2em] text-[#A3A3A3]" />
-          </div>
+          ))}
         </div>
       </div>
     </section>

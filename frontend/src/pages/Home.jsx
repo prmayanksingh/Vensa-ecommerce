@@ -6,10 +6,15 @@ import CategoryShowcase from "../components/CategoryShowcase";
 import FAQSection from "../components/FAQSection";
 import PromoSection from "../components/PromoSection";
 import Footer from "../components/Footer";
+import { motion } from "framer-motion";
 
 const Home = ({ startHero }) => {
   return (
-    <section>
+    <motion.section
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1, transition: { duration: 0.3 } }}
+      exit={{ opacity: 0, transition: { duration: 0.3 } }}
+    >
       <Hero startHero={startHero} />
       <MarqueeEffect />
       <IntroSection />
@@ -19,7 +24,7 @@ const Home = ({ startHero }) => {
       <FAQSection />
       <PromoSection />
       <Footer />
-    </section>
+    </motion.section>
   );
 };
 
