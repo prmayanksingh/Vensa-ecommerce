@@ -62,25 +62,58 @@ const Footer = () => {
 
       <div className="w-full flex flex-col lg:flex-row lg:justify-between gap-[2em] sm:gap-[2.3em] lg:gap-[0]">
         <div className="w-full lg:w-[50%] xl:w-[53%] flex flex-col gap-[.85em]">
-          <h2 className="text-[1em] font-bold">Vensa.co - All Rights Reserved</h2>
-          <h2 className="text-[1em] text-gray-600">The Seen Mastercard is issued by coastal community Bank,Member FDIC,under a license from Mastercard international incorporated.</h2>
+          <h2 className="text-[1em] font-bold">
+            Vensa.co - All Rights Reserved
+          </h2>
+          <h2 className="text-[1em] text-gray-600">
+            The Seen Mastercard is issued by coastal community Bank,Member
+            FDIC,under a license from Mastercard international incorporated.
+          </h2>
           <div className="flex flex-col gap-[.3em]">
-            <h2 className="text-[1em] text-gray-600">1. All payment acrivities,whether positive or negative,are reported to the three major credit bureaus.</h2>
-            <h2 className="text-[1em] text-gray-600">2. The effect on your credit score may vary,and some users may no see an improvement.For more details,refer to the Rate and Fee information.</h2>
-            <h2 className="text-[1em] text-gray-600">3. Your account is subject to automatic reviews for potential credit line adjustments. Based on your payment history and eligibility,your credit line may increase,decrease,or remain unchanged.</h2>
-            <h2 className="text-[1em] text-gray-600">4. Responsible use and timely monthly payments are required.</h2>
+            <h2 className="text-[1em] text-gray-600">
+              1. All payment acrivities,whether positive or negative,are
+              reported to the three major credit bureaus.
+            </h2>
+            <h2 className="text-[1em] text-gray-600">
+              2. The effect on your credit score may vary,and some users may no
+              see an improvement.For more details,refer to the Rate and Fee
+              information.
+            </h2>
+            <h2 className="text-[1em] text-gray-600">
+              3. Your account is subject to automatic reviews for potential
+              credit line adjustments. Based on your payment history and
+              eligibility,your credit line may increase,decrease,or remain
+              unchanged.
+            </h2>
+            <h2 className="text-[1em] text-gray-600">
+              4. Responsible use and timely monthly payments are required.
+            </h2>
           </div>
-          <h2 className="text-[1em] text-gray-600">NMLS #2477008. Visit the NMLS Consumer Access Database here</h2>
+          <h2 className="text-[1em] text-gray-600">
+            NMLS #2477008. Visit the NMLS Consumer Access Database here
+          </h2>
         </div>
-        <div className="w-full lg:w-[50%] xl:w-[40%] t`ext-[3.7em] sm:text-[.9em] xl:text-[.8em] flex flex-col items-end justify-center gap-[.25em] sm:gap-[1.1em] lg:gap-[1.4em] xl:gap-[1.7em]">
+        <div className="w-full lg:w-[50%] xl:w-[40%] text-[3.7em] sm:text-[.9em] xl:text-[.8em] flex flex-col items-end justify-center gap-[.25em] sm:gap-[1.1em] lg:gap-[1.4em] xl:gap-[1.7em]">
           <div className="group flex items-center gap-[.2em] sm:text-[4.3em] xl:text-[5.3em]">
             <div className="w-[1.7em] h-[1.7em] text-[.5em] bg-gray-300 flex items-center justify-center rounded-lg group-hover:text-white group-hover:bg-orange-600">
               <FaLinkedinIn />
             </div>
-            <FlipLink>Linkdin</FlipLink>
+            <a
+              href="https://www.linkedin.com/in/mayank-pratap-singh-1a2b3c/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FlipLink>Linkdin</FlipLink>
+            </a>
           </div>
           <div className="group flex items-center gap-[.2em] sm:text-[4.3em] xl:text-[5.3em]">
-            <FlipLink>Github</FlipLink>
+            <a
+              href="https://github.com/prmayanksingh"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FlipLink>Github</FlipLink>
+            </a>
             <div className="w-[1.7em] h-[1.7em] text-[.5em] bg-gray-300 flex items-center justify-center rounded-lg group-hover:text-white group-hover:bg-orange-600">
               <TbBrandGithubFilled />
             </div>
@@ -89,10 +122,22 @@ const Footer = () => {
             <div className="w-[1.7em] h-[1.7em] text-[.5em] bg-gray-300 flex items-center justify-center rounded-lg group-hover:text-white group-hover:bg-orange-600">
               <FaInstagram />
             </div>
-            <FlipLink>Instagram</FlipLink>
+            <a
+              href="https://www.instagram.com/tnt_mayank/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FlipLink>Instagram</FlipLink>
+            </a>
           </div>
           <div className="group flex items-center gap-[.2em] sm:text-[4.3em] xl:text-[5.3em]">
-            <FlipLink>Twitter</FlipLink>
+            <a
+              href="https://x.com/prmayanksingh"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FlipLink>Twitter</FlipLink>
+            </a>
             <div className="w-[1.7em] h-[1.7em] text-[.5em] bg-gray-300 flex items-center justify-center rounded-lg group-hover:text-white group-hover:bg-orange-600">
               <BsTwitterX />
             </div>
