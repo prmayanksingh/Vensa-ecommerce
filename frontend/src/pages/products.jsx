@@ -1,13 +1,20 @@
 import { FaArrowLeftLong } from "react-icons/fa6";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import InfiniteScroll from "react-infinite-scroll-component";
-import { lazy, Suspense } from "react";
+import { lazy, Suspense, useEffect } from "react";
 import useInfiniteProducts from "../utils/useInfiniteProducts";
 import { motion } from "framer-motion";
 const ProductCard = lazy(() => import("../components/ProductCard"));
 
 const Products = () => {
   const { hasMore, products, fetchMoreProducts } = useInfiniteProducts();
+
+  const { state } = useLocation();
+
+  useEffect(() => {
+    if (state?.scrollToTop)
+      window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+  }, []);
 
   return (
     <motion.section

@@ -7,22 +7,22 @@ import { useDispatch } from "react-redux";
 import { nanoid } from "nanoid";
 import { asyncRegisterUser } from "../store/actions/UserAction";
 
-const Register = () => {
+const Register = ({ onSwitch }) => {
   const { register, handleSubmit, reset } = useForm();
   const dispatch = useDispatch();
 
   const registerHandler = (user) => {
     user.id = nanoid();
     user.isAdmin = false;
-    user.cart = []
+    user.cart = [];
     dispatch(asyncRegisterUser(user));
     reset();
   };
 
   return (
-    <div className="lg:w-[50%] lg:flex lg:justify-center my-auto -translate-y-[4%] text-[4vw] md:text-[22px] lg:text-[20px] xl:text-[16px]">
-      <div className="w-[22em]">
-        <h1 className="text-center font-semibold text-[2.2em] mb-14">
+    <div className="lg:flex lg:w-[50%] lg:justify-center my-auto -translate-y-[4%] text-[clamp(10px,4vw,15px)] md:text-[17px] lg:text-[clamp(10px,3vw,16px)] xl:text-[clamp(11px,4vw,17px)]">
+      <div>
+        <h1 className="text-center font-semibold text-[2.5em] mb-12">
           Sign Up
         </h1>
         <form
@@ -96,7 +96,12 @@ const Register = () => {
         </div>
         <h5 className="text-[0.8em] text-gray-700 text-center">
           Already have an account?{" "}
-          <span className="text-blue-700 font-bold cursor-pointer">Login</span>
+          <span
+            onClick={onSwitch}
+            className="text-blue-700 font-bold cursor-pointer"
+          >
+            Login
+          </span>
         </h5>
       </div>
     </div>

@@ -54,7 +54,9 @@ const Nav = () => {
         initial="hidden"
         animate={isMenuOpen ? "show" : "hidden"}
         exit="exit"
-        className={`mt-[3.2rem] md:hidden w-[45%] absolute z-[60] top-0 right-0 text-right`}
+        className={`${
+          isMenuOpen ? "" : "hidden"
+        } mt-[3.2rem] md:hidden w-[45%] absolute z-[60] top-0 right-0 text-right`}
       >
         <div className="bg-gray-100 rounded-b px-[.6em] py-[.8em] flex flex-col gap-[.3em] text-[1em] sm:text-[.85em] shadow-lg">
           <NavLink

@@ -1,4 +1,4 @@
-import { animate, AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
 import { IoIosArrowDown } from "react-icons/io";
 import { IoIosArrowUp } from "react-icons/io";
@@ -67,15 +67,20 @@ const FAQSection = () => {
             Find answers to common inquiries about products, shipping, returns
             and customer support
           </h3>
-          <button className="w-fit h-fit text-[1.1em] lg:text-[1em] px-[1em] lg:px-[1.2em] py-[.4em] lg:py-[.5em] shadow shadow-gray-400 rounded-lg ">
+          <motion.button
+            whileTap={{ scale: 0.95 }}
+            whileHover={{ backgroundColor: "#6A7282", color: "#fff" }}
+            className="w-fit h-fit text-[1.1em] lg:text-[1em] px-[1em] lg:px-[1.2em] py-[.4em] lg:py-[.5em] shadow shadow-gray-400 rounded-lg "
+          >
             Contact Us
-          </button>
+          </motion.button>
         </div>
       </div>
       <div className="flex flex-col lg:flex-row lg:justify-between gap-[1.2em] lg:gap-[0em]">
         <div className="lg:w-[49%] flex flex-col gap-[1.2em] font-bold font-['Gilroy'] text-[#1F1F1F]">
-          {faq1.map((elem) => (
+          {faq1.map((elem, idx) => (
             <div
+              key={idx}
               onClick={() => toggle(elem.num)}
               className="h-fit px-[1em] bg-[#F7F7F7] rounded-lg flex flex-col"
             >
@@ -132,8 +137,9 @@ const FAQSection = () => {
           ))}
         </div>
         <div className="lg:w-[49%] flex flex-col gap-[1.2em] font-bold font-['Gilroy']">
-          {faq2.map((elem) => (
+          {faq2.map((elem, idx) => (
             <div
+              key={idx}
               onClick={() => toggle(elem.num)}
               className="h-fit px-[1em] bg-[#F7F7F7] rounded-lg flex flex-col"
             >

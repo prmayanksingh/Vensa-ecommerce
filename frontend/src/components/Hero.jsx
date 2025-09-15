@@ -2,6 +2,7 @@ import { IoIosArrowForward } from "react-icons/io";
 import hero from "../assets/hero.webp";
 import { color, motion, scale } from "framer-motion";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 const Hero = ({ startHero }) => {
   const navigate = useNavigate();
@@ -49,13 +50,15 @@ const Hero = ({ startHero }) => {
     },
     exit: { opacity: 0, y: 20, transition: { duration: 0.4, ease: "easeIn" } },
   };
+  const [isImageLoaded, setIsImageLoaded] = useState(false);
+
   return (
     <motion.div
       variants={container}
       initial="hidden"
-      animate={startHero ? "show" : "hidden"}
+      animate={startHero && isImageLoaded ? "show" : "hidden"}
       exit="exit"
-      className="relative z-1 w-full h-[83vh] lg:h-[calc(100vh-3.2rem)] xl:h-[calc(100vh-3.2rem)] text-[clamp(10px,3.7vw,16px)] sm:text-[16px] flex items-end overflow-hidden"
+      className="relative z-1 w-full h-[83vh] lg:h-[calc(100vh-3.2rem)] xl:h-[calc(100vh-3.2rem)] text-[clamp(10px,3.7vw,16px)] sm:text-[16px] flex items-end overflow-hidden bg-[#0a0a0a]"
     >
       <motion.img
         variants={imgAnime}
@@ -64,9 +67,15 @@ const Hero = ({ startHero }) => {
         alt="Man in black outfit wearing sunglasses in a stylish pose, Vensa.co fashion hero banner"
         width="1600"
         height="900"
+        sizes="100vw"
         loading="eager"
         fetchPriority="high"
         decoding="async"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: isImageLoaded ? 1 : 0 }}
+        transition={{ duration: 0.4, ease: "easeOut" }}
+        onLoad={() => setIsImageLoaded(true)}
+        onError={() => setIsImageLoaded(true)}
       />
       <motion.div
         variants={textGroup}

@@ -1,10 +1,10 @@
 import { CgMail } from "react-icons/cg";
 import { RiLockPasswordLine } from "react-icons/ri";
 import { useForm } from "react-hook-form";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { asyncLoginUser } from "../store/actions/UserAction";
 
-const Login = () => {
+const Login = ({ onSwitch }) => {
   const { handleSubmit, register, reset } = useForm();
   const dispatch = useDispatch();
 
@@ -14,9 +14,9 @@ const Login = () => {
   };
 
   return (
-    <div className="lg:w-[50%] lg:flex lg:justify-center my-auto -translate-y-[8%] text-[4vw] md:text-[22px] lg:text-[20px] xl:text-[16px]">
+    <div className="lg:flex lg:w-[50%] lg:justify-center my-auto -translate-y-[8%] text-[clamp(10px,4vw,15px)] md:text-[17px] lg:text-[clamp(10px,3vw,16px)] xl:text-[clamp(11px,4vw,17px)]">
       <div className="w-[22em]">
-        <h1 className="text-center font-semibold text-[2.2em] mb-14">
+        <h1 className="text-center font-semibold text-[2.5em] mb-12">
           Sign In
         </h1>
         <form
@@ -65,7 +65,12 @@ const Login = () => {
         </div>
         <h5 className="text-[0.8em] text-gray-700 text-center">
           New to Vensa.co?{" "}
-          <span className="text-blue-700 font-bold">Register</span>
+          <span
+            onClick={onSwitch}
+            className="text-blue-700 font-bold cursor-pointer"
+          >
+            Register
+          </span>
         </h5>
       </div>
     </div>
