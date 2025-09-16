@@ -3,17 +3,17 @@ import { lazy, useEffect } from "react";
 import { AnimatePresence } from "framer-motion";
 import { motion } from "framer-motion";
 import Nav from "../components/Nav";
-const Home = lazy(() => import("../pages/Home"));
-const Auth = lazy(() => import("../pages/Auth"));
-const Cart = lazy(() => import("../pages/Cart"));
-const Products = lazy(() => import("../pages/Products"));
-const CreateProduct = lazy(() => import("../pages/admin/CreateProduct"));
-const ProductDetails = lazy(() => import("../pages/ProductDetails"));
-const UpdateProduct = lazy(() => import("../pages/admin/UpdateProduct"));
-const UserProfile = lazy(() => import("../pages/users/UserProfile"));
-const PageNotFound = lazy(() => import("../pages/PageNotFound"));
-const AuthWrapper = lazy(() => import("./AuthWrapper"));
-const UnauthWrapper = lazy(() => import("./UnauthWrapper"));
+const Home = lazy(() => import("../pages/Home.jsx"));
+const Auth = lazy(() => import("../pages/Auth.jsx"));
+const Cart = lazy(() => import("../pages/Cart.jsx"));
+const Products = lazy(() => import("../pages/Products.jsx"));
+const CreateProduct = lazy(() => import("../pages/admin/CreateProduct.jsx"));
+const ProductDetails = lazy(() => import("../pages/ProductDetails.jsx"));
+const UpdateProduct = lazy(() => import("../pages/admin/UpdateProduct.jsx"));
+const UserProfile = lazy(() => import("../pages/users/UserProfile.jsx"));
+const PageNotFound = lazy(() => import("../pages/PageNotFound.jsx"));
+const AuthWrapper = lazy(() => import("./AuthWrapper.jsx"));
+const UnauthWrapper = lazy(() => import("./UnauthWrapper.jsx"));
 
 const MainRoute = ({ startHero }) => {
   const location = useLocation();
@@ -69,7 +69,7 @@ const MainRoute = ({ startHero }) => {
               </AuthWrapper>
             }
           />
-          //Products route
+          {/* Products route */}
           <Route path="/products" element={<Products />} />
           <Route
             path="/product/:id"
@@ -79,7 +79,7 @@ const MainRoute = ({ startHero }) => {
               </AuthWrapper>
             }
           />
-          //Admin route
+          {/* Admin route */}
           <Route
             path="/admin/create-product"
             element={
@@ -96,7 +96,7 @@ const MainRoute = ({ startHero }) => {
               </AuthWrapper>
             }
           />
-          //PageNotFound
+          {/* PageNotFound */}
           <Route path="*" element={<PageNotFound />} />
         </Routes>
       </AnimatePresence>
