@@ -16,19 +16,7 @@
       "email": "mayank@gmail.com",
       "password": "mayank",
       "isAdmin": false,
-      "cart": [
-        {
-          "product": {
-            "id": "wgb-fNXKP7lETBDSJbpxE",
-            "image": "https://images.pexels.com/photos/30771925/pexels-photo-30771925.jpeg",
-            "name": "Women's Oversized Patchwork Denim Jacket with Mini Dress",
-            "category": "women-clothing",
-            "price": "2499",
-            "description": "Make a bold fashion statement with this oversized patchwork denim jacket layered over a chic charcoal-grey mini dress. The jacket features mixed denim panels, wide sleeves, and a relaxed fit, offering a blend of vintage and street-style appeal. Perfect for layering during cool days, this outfit pairs effortlessly with tights and ankle boots for a trendy, urban look."
-          },
-          "quantity": 1
-        }
-      ]
+      "cart": []
     }
   ],
   "products": [

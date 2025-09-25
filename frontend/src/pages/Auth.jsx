@@ -10,7 +10,7 @@ const container = {
 };
 
 const Auth = () => {
-  const [mode, setMode] = useState("register");
+  const [mode, setMode] = useState("login");
   return (
     <motion.section
       exit={{ opacity: 0,y:10, transition: { duration: 0.3, ease: "easeIn" } }}
